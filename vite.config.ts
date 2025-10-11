@@ -1,18 +1,8 @@
-import { fileURLToPath, URL } from 'node:url'
+import { sveltekit } from "@sveltejs/kit/vite";
+import { enhancedImages } from "@sveltejs/enhanced-img";
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
-
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    tailwindcss()
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+    plugins: [enhancedImages(), tailwindcss(), sveltekit()],
+});

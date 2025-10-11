@@ -1,2 +1,5 @@
-# Kimu's retro portfolio
-I wanted to do an original portfolio that looked like a retro game, so that's what I am trying :3
+# Threona's Portfolio
+
+Hewo! This is my personal (developer) website!
+
+Here I plan to host things about me and other things I want to share.
