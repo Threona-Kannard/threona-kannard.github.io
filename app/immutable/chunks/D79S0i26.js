@@ -1,1 +1,0 @@
-const t=[{url:"https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840c1b7891fe2bfccf1ab5933f"}],s={spotify:"https://open.spotify.com/playlist/6EvqmFpfnC5L1ChxBBTmhj"},a="Kimu",e="Kimu&#x27;s upbeat playlist",i={images:t,external_urls:s,name:a,description:e};export{i as default,e as description,s as external_urls,t as images,a as name};

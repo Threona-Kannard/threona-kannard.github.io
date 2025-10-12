@@ -1,1 +1,0 @@
-const t=[{url:"https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84336dcd3bc0245c324641d6b6"}],s={spotify:"https://open.spotify.com/playlist/7orU1YNSydM8NS1iHEE6Q1"},o="LPR-309",a="",c={images:t,external_urls:s,name:o,description:a};export{c as default,a as description,s as external_urls,t as images,o as name};

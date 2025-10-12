@@ -1,0 +1,1 @@
+const t=[{url:"https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843a150f0c1cae340bc181e30b"}],c={spotify:"https://open.spotify.com/playlist/7BiqgXgNUkojyYF1URqVHd"},s="MCHN",a="Rock &amp; Synth disocciating playlist",o={images:t,external_urls:c,name:s,description:a};export{o as default,a as description,c as external_urls,t as images,s as name};
