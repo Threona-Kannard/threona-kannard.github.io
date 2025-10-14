@@ -2,9 +2,35 @@
     import { get } from "svelte/store";
     import { locale } from "svelte-i18n";
     import { onMount } from "svelte";
+    import jQuery from "jquery";
     // Images
     import CoplandOsImg from "$lib/assets/images/copland.webp";
     import KimuFaceImg from "$lib/assets/images/kimucara.webp";
+
+    function OnTextClicked() {
+        jQuery(".placeholder").css("opacity", "0");
+        jQuery(".list__ul").toggle();
+    };
+
+    function OnOptionItemClicked(ev : Event) {
+        ev.preventDefault();
+        var index = jQuery(ev).parent().index();
+        console.log(index);
+        jQuery(".placeholder").text(jQuery(ev).text()).css("opacity", "1");
+
+        console.log(jQuery(".list__ul").find("li").eq(index).html());
+
+        jQuery(".list__ul").find("li").eq(index).prependTo(".list__ul");
+        jQuery(".list__ul").toggle();
+    };
+
+    // jQuery("select").on("change", function (e) {
+    //     // Set text on placeholder hidden element
+    //     jQuery(".placeholder").text(jQuery(this).val() as string);
+
+    //     // Animate select width as placeholder
+    //     jQuery(this).animate({ width: jQuery(".placeholder").width() + "px" });
+    // });
 
     let userLocale = $state(getLocale());
 
@@ -18,7 +44,7 @@
 
     function getLocale(): string {
         const userLocale = get(locale)?.substring(0, 2);
-        if (!(userLocale || userLocale === "en" || userLocale === "es")) {
+        if (!(userLocale || userLocale === "en" || userLocale === "vi")) {
             locale.set("en");
             return "en";
         }
@@ -66,25 +92,20 @@
             >
         </a>
 
-        <a aria-label="x com" href="https://x.com/ThreonaHuynh">
+        <a aria-label="x" href="https://x.com/ThreonaHuynh">
             <svg
                 class="social-link"
-                width="1200" height="1227"
-                viewBox="0 0 1200 1227"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 30 30"
                 ><g
                     stroke="none"
                     stroke-width="1"
                     fill="none"
                     fill-rule="evenodd"
-                    ><g
-                        class="social-link-color"
-                        transform="translate(-60.000000, -7521.000000)"
-                        ><g transform="translate(56.000000, 160.000000)"
+                    ><g class="social-link-color"
+                        ><g
                             ><path
-                                d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
-                                fill="social-link-color"
+                                d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
                             /></g
                         ></g
                     ></g
@@ -115,22 +136,62 @@
             >
         </a>
 
-        <select
+        <!-- <select
             name="lang"
             class="lang-selector"
             bind:value={userLocale}
             onchange={() => updateLocale()}
         >
             <option value="en">en</option>
-            <option value="es">es</option>
-        </select>
+            <option value="vi">vi</option>
+        </select> -->
+
+        <div class="list">
+            <button class="placeholder" onclick={OnTextClicked}>{userLocale}</button>
+            <ul class="list__ul" onclick={OnOptionItemClicked}>
+                <li>en</li>
+                <li>vi</li>
+            </ul>
+        </div>
     </div>
 </header>
 <div class="spacer"></div>
 
-<style>
+<style lang="scss">
+    $dark: #555;
+    $color--primary: hsla(269, 100%, 50%, 1);
     :root {
         --spacing: clamp(1.5rem, 2vw, 5rem);
+    }
+
+    .list {
+        display: inline-block;
+        position: relative;
+        //border: 1px solid red;
+        margin-left: 6px;
+        ul {
+            text-align: left;
+            position: absolute;
+            padding: 0;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        li {
+            list-style: none;
+        }
+    }
+
+    .placeholder {
+        //visibility: hidden;
+        //position: fixed;
+        border-bottom: 4px solid;
+        font-size: 1.2rem;
+        color: var(--color-border);
+        cursor: pointer;
+        &:hover {
+            color: var(--color-accent);
+        }
     }
 
     header {
@@ -177,10 +238,6 @@
         height: 100%;
     }
 
-    .social-copland {
-        height: 2rem;
-    }
-
     .social-link {
         display: grid;
         place-content: center;
@@ -191,11 +248,6 @@
     }
     .social a:hover .social-link-color {
         fill: var(--color-accent);
-    }
-
-    .lang-selector {
-        color: var(--color-border);
-        font-weight: bold;
     }
 
     .spacer {
