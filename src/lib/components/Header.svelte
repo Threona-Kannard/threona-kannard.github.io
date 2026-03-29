@@ -4,25 +4,46 @@
     import { onMount } from "svelte";
     import jQuery from "jquery";
     // Images
-    import CoplandOsImg from "$lib/assets/images/copland.webp";
+    // TODO: Change the image to threona logo
     import KimuFaceImg from "$lib/assets/images/kimucara.webp";
 
+    function setMenuAnimationState(isOpen: boolean) {
+        const menuItems = jQuery(".list__ul").find("li");
+
+        if (isOpen) {
+            // Remove then re-add class to reliably restart keyframe animation.
+            menuItems.removeClass("toggled");
+            const firstItem = menuItems.get(0) as HTMLElement | undefined;
+            if (firstItem) {
+                void firstItem.offsetWidth;
+            }
+            menuItems.addClass("toggled");
+            return;
+        }
+
+        menuItems.removeClass("toggled");
+    }
+
     function OnTextClicked() {
+        const menu = jQuery(".list__ul");
+        const isOpening = !menu.is(":visible");
+
         jQuery(".placeholder").css("opacity", "0");
-        jQuery(".list__ul").toggle();
-    };
+        menu.toggle(isOpening);
+        setMenuAnimationState(isOpening);
+    }
 
-    function OnOptionItemClicked(ev : Event) {
-        ev.preventDefault();
-        var index = jQuery(ev).parent().index();
-        console.log(index);
-        jQuery(".placeholder").text(jQuery(ev).text()).css("opacity", "1");
+    function OnOptionItemClicked(selectedLocale: string) {
+        userLocale = selectedLocale;
+        updateLocale();
 
-        console.log(jQuery(".list__ul").find("li").eq(index).html());
-
-        jQuery(".list__ul").find("li").eq(index).prependTo(".list__ul");
-        jQuery(".list__ul").toggle();
-    };
+        jQuery(".placeholder").text(selectedLocale).css("opacity", "1");
+        jQuery(`.list__ul button[data-locale='${selectedLocale}']`)
+            .closest("li")
+            .prependTo(".list__ul");
+        jQuery(".list__ul").hide();
+        setMenuAnimationState(false);
+    }
 
     // jQuery("select").on("change", function (e) {
     //     // Set text on placeholder hidden element
@@ -36,20 +57,30 @@
 
     onMount(() => {
         const savedLocale = localStorage.getItem("locale");
-        if (savedLocale) {
+        if (
+            savedLocale === "en" ||
+            savedLocale === "vi" ||
+            savedLocale === "jp"
+        ) {
             locale.set(savedLocale);
             userLocale = savedLocale;
         }
     });
 
     function getLocale(): string {
-        const userLocale = get(locale)?.substring(0, 2);
-        if (!(userLocale || userLocale === "en" || userLocale === "vi")) {
+        const currentLocale = get(locale)?.substring(0, 2);
+        if (
+            !(
+                currentLocale === "en" ||
+                currentLocale === "vi" ||
+                currentLocale === "jp"
+            )
+        ) {
             locale.set("en");
             return "en";
         }
 
-        return userLocale;
+        return currentLocale;
     }
 
     function updateLocale() {
@@ -67,6 +98,22 @@
     </a>
 
     <div class="social">
+        <a
+            aria-label="Instagram"
+            href="https://www.instagram.com/threona.huynh/"
+        >
+            <svg
+                class="social-link"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                ><g class="social-link-color" fill="none" fill-rule="evenodd"
+                    ><path
+                        fill-rule="nonzero"
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.851s-.012 3.585-.07 4.851c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.585-.012-4.851-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.585 2.163 15.205 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.415 2.175 8.795 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"
+                    /></g
+                ></svg
+            >
+        </a>
         <a aria-label="github" href="https://github.com/Threona-Kannard">
             <svg
                 class="social-link"
@@ -91,28 +138,6 @@
                 ></svg
             >
         </a>
-
-        <a aria-label="x" href="https://x.com/ThreonaHuynh">
-            <svg
-                class="social-link"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 30 30"
-                ><g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                    ><g class="social-link-color"
-                        ><g
-                            ><path
-                                d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
-                            /></g
-                        ></g
-                    ></g
-                ></svg
-            >
-        </a>
-
         <a
             aria-label="patreon server"
             href="https://www.patreon.com/cw/threona_techart"
@@ -136,21 +161,29 @@
             >
         </a>
 
-        <!-- <select
-            name="lang"
-            class="lang-selector"
-            bind:value={userLocale}
-            onchange={() => updateLocale()}
-        >
-            <option value="en">en</option>
-            <option value="vi">vi</option>
-        </select> -->
-
         <div class="list">
-            <button class="placeholder" onclick={OnTextClicked}>{userLocale}</button>
-            <ul class="list__ul" onclick={OnOptionItemClicked}>
-                <li>en</li>
-                <li>vi</li>
+            <button class="placeholder" onclick={OnTextClicked}
+                >{userLocale}</button
+            >
+            <ul class="list__ul">
+                <li>
+                    <button
+                        data-locale="en"
+                        onclick={() => OnOptionItemClicked("en")}>en</button
+                    >
+                </li>
+                <li>
+                    <button
+                        data-locale="vi"
+                        onclick={() => OnOptionItemClicked("vi")}>vi</button
+                    >
+                </li>
+                <li>
+                    <button
+                        data-locale="jp"
+                        onclick={() => OnOptionItemClicked("jp")}>jp</button
+                    >
+                </li>
             </ul>
         </div>
     </div>
@@ -167,8 +200,7 @@
     .list {
         display: inline-block;
         position: relative;
-        //border: 1px solid red;
-        margin-left: 6px;
+        margin-top: 5px;
         ul {
             text-align: left;
             position: absolute;
@@ -178,7 +210,48 @@
             display: none;
         }
         li {
-            list-style: none;
+            display: block;
+            position: relative;
+            width: 30px;
+            border-bottom: 4px solid;
+            text-align: center;
+            font-size: 1.2rem;
+            background-color: #7e7d7d3b;
+            border-radius: 15%;
+            color: var(--color-border);
+            cursor: pointer;
+
+            &:global(.toggled) {
+                @for $m from 1 through 3 {
+                    &:nth-child(#{$m + 1}) {
+                        animation: fadeInLeft 0s ease-out both;
+                        transition-delay:
+                            #{0.05 * $m}s,
+                            0s;
+                        border-left: 4px solid;
+                        margin-left: #{1 * $m}rem;
+                        margin-top: 0.2rem;
+                    }
+                }
+            }
+
+            &:hover {
+                color: var(--color-accent);
+                button {
+                    color: var(--color-accent);
+                }
+            }
+        }
+    }
+
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translate3d(-100%, 0, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: none;
         }
     }
 
@@ -200,7 +273,6 @@
         left: 0;
         height: calc(var(--header-height) + var(--spacing));
         width: 100%;
-
         display: flex;
         justify-content: space-between;
         align-items: center;

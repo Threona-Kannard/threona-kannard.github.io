@@ -77,9 +77,9 @@
         </div>
 
         <div class="character-spells-container">
-            <Spells maxSlots={4} usedSlots={3} level={1} />
+            <Spells maxSlots={5} usedSlots={4} level={4} />
             <Spells maxSlots={3} usedSlots={1} level={2} />
-            <Spells maxSlots={3} usedSlots={2} level={3} />
+            <Spells maxSlots={4} usedSlots={2} level={3} />
         </div>
     </div>
 
