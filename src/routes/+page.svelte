@@ -5,7 +5,7 @@
     import Spells from "$lib/components/index/Spells.svelte";
     import Card from "$lib/components/index/Card.svelte";
     // Images
-    import KimuGithubImg from "$lib/assets/images/kimu-github.webp?enhanced";
+    import ThreonaGitImg from "$lib/assets/images/threona-github.png?enhanced";
 
 	const messages: string[] = $format("page.home.greeting") as unknown as string[];
     let currentMessage = $state(0);
@@ -31,8 +31,8 @@
         <div class="character-dialog-container">
             <enhanced:img
                 class="character-img"
-                src={KimuGithubImg}
-                alt="Profile of Kimu on Github"
+                src={ThreonaGitImg}
+                alt="Profile of Threona on Github"
                 loading="lazy"
             />
 
