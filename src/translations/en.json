@@ -20,8 +20,9 @@
                 "about": "About Me",
                 "projects": "Projects",
                 "contact": "Contact",
-                "donate": "Donate :3",
-                "my-server": "Discord",
+                "donate": "Buy me a coffee",
+                "patreon": "Patreon",
+                "artstation": "Artstation",
                 "youtube": "Youtube"
             }
         },
@@ -53,7 +54,10 @@
             "title": "Projects"
         },
         "contact": {
-            "title": "Contact"
+            "title": "Contact me"
+        },
+        "background": {
+            "loading": "Waiting for the content to load..."
         }
     }
 }

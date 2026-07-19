@@ -13,10 +13,12 @@
 <Separator />
 
 <div class="container">
-	<Social socialApp={"Mail"} name={"Email"} linkText={"Kimumail"} link={"mailto:notkimu@proton.me"} />
-	<Social socialApp={"Signal"} name={"Signal"} linkText={"notkimu.01"} link={"https://signal.me/#eu/hOPAuM89TYNjvRwD05569EYR-HuO4oCo06ZyOYjtgCWn-mM-QqtBH5hSSF8cv0Sc"} />
-	<Social socialApp={"Discord"} name={"Discord"} linkText={"Net Cafe"} link={"https://discord.gg/NfeXrQdXdE"} />
-	<Social socialApp={"Twitter"} name={"Twitter"} linkText={"Kimu 🍃"} link={"https://twitter.com/notkimu"} />
+	<Social socialApp={"Mail"} name={"Email"} linkText={"Threona Huynh"} link={"mailto:threonahuynh.contact@gmail.com"} />
+	<Social socialApp={"LinkedIn"} name={"LinkedIn"} linkText={"Threona Huynh"} link={"https://www.linkedin.com/in/phat-tan-huynh/"} />
+	<Social socialApp={"WeChat"} name={"WeChat"} linkText={"Threona Huynh"} link={"https://weixin.qq.com/r/0vX8X8X8X8X8X8X8"} />
+	<Social socialApp={"X"} name={"X"} linkText={"Threona Huynh 👾"} link={"https://twitter.com/notkimu"} />
+	<Social socialApp={"Zalo"} name={"Zalo"} linkText={"Threona Huynh"} link={"https://zalo.me/0901234567"} />
+
 </div>
 
 <style>
@@ -24,7 +26,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--padding-m);
+		gap: var(--padding-x);
+		max-width: 100%;
+		margin-top: var(--padding-x);
+		
 	}
 
 	@media screen and (max-width: 728px) {

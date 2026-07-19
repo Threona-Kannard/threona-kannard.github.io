@@ -1,12 +1,13 @@
 <script lang="ts">
 	// Images
-	import SignalImg from "$lib/assets/images/contact/signal.png?enhanced";
-	import DiscordImg from "$lib/assets/images/contact/discord.png?enhanced";
-	import TwitterImg from "$lib/assets/images/contact/twitter.png?enhanced";
+	import LinkedInImg from "$lib/assets/images/contact/linkedin.png?enhanced";
+	import WeChatImg from "$lib/assets/images/contact/wechat.png?enhanced";
+	import XImg from "$lib/assets/images/contact/x_new.png?enhanced";
 	import MailImg from "$lib/assets/images/contact/mail.png?enhanced";
+	import ZaloImg from "$lib/assets/images/contact/zalo.png?enhanced";
 	import StarImg from "$lib/assets/images/star.gif";
 
-	type SocialApp = "Discord" | "Signal" | "Twitter" | "Mail";
+	type SocialApp = "WeChat" | "LinkedIn" | "X" | "Mail" | "Zalo";
 	type Props = {
 		socialApp: SocialApp;
 		name: string;
@@ -19,20 +20,22 @@
 
 <a href={link} class="container" target="_blank">
 	<div class="container__img">
-		{#if socialApp === "Discord"}
-			<enhanced:img src={DiscordImg} alt="Discord icon" />
-		{:else if socialApp === "Signal"}
-			<enhanced:img src={SignalImg} alt="Signal icon" />
-		{:else if socialApp == "Twitter"}
-			<enhanced:img src={TwitterImg} alt="Twitter icon" />
-		{:else if socialApp == "Mail"}
-			<enhanced:img src={MailImg} alt="Email icon" />
+		{#if socialApp === "WeChat"}
+			<enhanced:img src={WeChatImg} alt="WeChat icon" />
+		{:else if socialApp === "LinkedIn"}
+			<enhanced:img src={LinkedInImg} alt="LinkedIn icon" />
+		{:else if socialApp === "X"}
+			<enhanced:img src={XImg} alt="X icon" />
+		{:else if socialApp === "Mail"}
+		<enhanced:img src={MailImg} alt="Email icon" />
+		{:else if socialApp === "Zalo"}
+			<enhanced:img src={ZaloImg} alt="Zalo icon" />
 		{/if}
 	</div>
 
-	<div class="container__text">
-		<h2>{name}</h2>
-		<h3>{linkText}</h3>
+	<div class="">
+		<h2 class="text-3xl font-bold">{name}</h2>
+		<h3 class="text-xl font-bold p-1">{linkText}</h3>
 	</div>
 
 	<img class="container__star" src={StarImg} alt="Mario Bros Star" />
@@ -41,13 +44,12 @@
 <style>
 	.container {
 		position: relative;
-	
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		align-items: center;
 		align-self: stretch;
-		gap: var(--padding-m);
+		gap: var(--padding-);
 
 		background: linear-gradient(var(--color-bg), var(--color-border)) center no-repeat;
 		background-position: 0px 300px;
@@ -62,7 +64,7 @@
 	}
 
 	.container__img {
-		width: 3rem;
+		width: 5rem;
 	}
 	.container__img img {
 		height: auto;
@@ -74,7 +76,7 @@
 	} */
 
 	.container__star {
-		height: 3rem;
+		height: 3.5rem;
 		width: auto;
 		position: absolute;
 		right: -1.5rem;

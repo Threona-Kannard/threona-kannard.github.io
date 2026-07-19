@@ -4,16 +4,18 @@
         icon?: string;
         link: string;
         newtab?: boolean;
+        x?: number;
+        y?: number
     };
 
-    const { name, icon, link, newtab }: Props = $props();
+    const { name, icon, link, newtab, x = 16, y = 16 }: Props = $props();
 </script>
 
 <a href={link} class="container" target={newtab ? "_blank" : ""}>
     {#if icon}
         <svg
             class="container__icon"
-            viewBox="0 0 16 16"
+            viewBox="0 0 {x} {y}"
             xmlns="http://www.w3.org/2000/svg"
         >
             {@html icon}

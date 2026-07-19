@@ -1,7 +1,7 @@
 <script lang="ts">
     import "$lib/i18n";
     import "../app.css";
-    import { isLoading } from "svelte-i18n";
+    import { _, isLoading, locale } from "svelte-i18n";
     import Header from "$lib/components/Header.svelte";
     import Sidebar from "$lib/components/Sidebar.svelte";
     // Images
@@ -9,6 +9,7 @@
     import GuraSpinImg from "$lib/assets/images/gawr-spin.gif";
 
     let { children } = $props();
+    const loadingMessage = $derived($locale ? $_("page.background.loading") : "Waiting for the content to load...");
 </script>
 
 <div id="app">
@@ -16,10 +17,10 @@
     <div class="polka"></div>
     <div class="crt"></div>
 
-    {#if $isLoading}
+    {#if $isLoading || !$locale}
         <center class="loading-container">
             <img class="loading-img" src={GuraSpinImg} alt="" loading="lazy" />
-            <h1>...</h1>
+            <h1>{loadingMessage}</h1>
         </center>
     {:else}
         <Header />
@@ -52,7 +53,7 @@
 
         pointer-events: none;
         opacity: 0.3;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23904ba5' %3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-image: url("/src/lib/assets/svg/polka-pattern.svg");
         mask-image: -moz-linear-gradient(
             180deg,
             transparent 60%,
