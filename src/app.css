@@ -4,11 +4,12 @@
 :root {
     --color-bg: #1a1a1a;
     --color-dark: #0d0d0d;
-    --color-fg: #e0e6edea;
-    --color-accent: hsla(120, 61%, 50%, 0.827);
-    --color-border: #e0c872d5;
-    --color-warning: #e82c2cc9;
+    --color-fg: #eafff5;
+    --color-accent: #f5aba4;
+    --color-border: #55a867;
+    --color-warning: #fa855a;
     --color-blue-retro: #3b52eb28;
+    --color-cream: #ffedad;
 
     --padding-s: 0.5rem;
     --padding-m: 1rem;
