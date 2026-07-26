@@ -19,36 +19,39 @@
         <span class="info-separator"
             ><b>{@html $_("page.about.stats.nick")}</b>
             <p>:</p>
-            <p>キム</p></span
+            <p>Threona (テェリオナ)</p></span
+        >
+        <span class="info-separator"
+            ><b>{@html $_("page.about.stats.class")}</b>
+            <p>:</p>
+            <p>Technical Artist</p></span
+        >
+        <span class="info-separator"
+            ><b>{@html $_("page.about.stats.guild")}</b>
+            <p>:</p>
+            <p>Sparx* - A Virtuos Studio</p></span
+        >
+        <span class="info-separator"
+            ><b>{@html $_("page.about.stats.realm")}</b>
+            <p>:</p>
+            <p>Viet Nam</p></span
         >
         <span class="info-separator"
             ><b>{@html $_("page.about.stats.level")}</b>
             <p>:</p>
-            <p>20</p></span
-        >
-        <span class="info-separator"
-            ><b>{@html $_("page.about.stats.hp")}</b>
-            <p>:</p>
-            <p>???</p></span
-        >
-        <span class="info-separator"
-            ><b>{@html $_("page.about.stats.mana")}</b>
-            <p>:</p>
-            <p>???</p></span
-        >
-        <span class="info-separator"
-            ><b>{@html $_("page.about.stats.rank")}</b>
-            <p>:</p>
-            <p>01</p></span
+            <p>Mid-level</p></span
         >
     </div>
+    <Separator/>
+    <span class="italic text-justify text-base font-bold">
+        {@html $_("page.about.stats.creed")}
+    </span>
 </div>
 
 <style>
     .about-character-view {
         height: 100%;
-        width: 15rem;
-
+        width: 29rem;
         display: flex;
         flex-direction: column;
         gap: var(--padding-s);
@@ -59,7 +62,7 @@
 
     .info-separator {
         display: grid;
-        grid-template-columns: 1fr min-content 1fr;
+        grid-template-columns: 1fr min-content 3fr;
     }
     .info-separator p:last-child {
         text-align: right;

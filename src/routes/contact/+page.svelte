@@ -15,9 +15,9 @@
 <div class="container">
 	<Social socialApp={"Mail"} name={"Email"} linkText={"Threona Huynh"} link={"mailto:threonahuynh.contact@gmail.com"} />
 	<Social socialApp={"LinkedIn"} name={"LinkedIn"} linkText={"Threona Huynh"} link={"https://www.linkedin.com/in/phat-tan-huynh/"} />
-	<Social socialApp={"Bilibili"} name={"Bilibili"} linkText={"Threona Huynh"} link={"https://space.bilibili.com/123456789"} />
-	<Social socialApp={"X"} name={"X"} linkText={"Threona Huynh 👾"} link={"https://twitter.com/notkimu"} />
-	<Social socialApp={"Discord"} name={"Discord"} linkText={"Threona Huynh"} link={"https://discord.gg/"} />
+	<Social socialApp={"Bilibili"} name={"Bilibili"} linkText={"Threona Huynh"} link={"https://space.bilibili.com/3707039752653311"} />
+	<Social socialApp={"X"} name={"X"} linkText={"Threona Huynh 👾"} link={"https://x.com/ThreonaHuynh"} />
+	<Social socialApp={"Discord"} name={"Discord"} linkText={"Threona Huynh"} link={"https://discord.gg/bsPgpn9Mxvs"} />
 
 </div>
 

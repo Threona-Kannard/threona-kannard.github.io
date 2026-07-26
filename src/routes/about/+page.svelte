@@ -4,17 +4,15 @@
     import CharacterStats from "$lib/components/about/CharacterStats.svelte";
     import Tools from "$lib/components/about/Tools.svelte";
     import Apps from "$lib/components/about/Apps.svelte";
-    import Inventory from "$lib/components/about/Inventory.svelte";
-    import Workspace from "$lib/components/about/Workspace.svelte";
+    import Inventory from "$lib/components/about/Inventory.svelte"
     import { onMount } from "svelte";
 
     let selectedProperty:
-        | "presentation"
-        | "tools"
-        | "apps"
+        | "biography"
+        | "skills and spells"
+        | "forge tools"
         | "inventory"
-        | "workspace"
-        | "" = $state("presentation");
+        | "" = $state("biography");
 
     onMount(() => {
         if (window.innerWidth < 728) {
@@ -27,7 +25,7 @@
     <title>{$_("page.about.title")}</title>
 </svelte:head>
 
-<h1 class="title">{$_("page.about.title")} :3</h1>
+<h1 class="title">{$_("page.about.title")}</h1>
 
 <Separator />
 
@@ -55,9 +53,9 @@
                 </svg>
             </button>
             <button
-                aria-label="presentation"
-                class={`${selectedProperty === "presentation" ? "property-selector-active" : ""} about-character-property`}
-                onclick={() => (selectedProperty = "presentation")}
+                aria-label="biography"
+                class={`${selectedProperty === "biography" ? "property-selector-active" : ""} about-character-property`}
+                onclick={() => (selectedProperty = "biography")}
             >
                 <svg
                     class="property-selector"
@@ -72,9 +70,9 @@
             </button>
 
             <button
-                aria-label="tools"
-                class={`${selectedProperty === "tools" ? "property-selector-active" : ""} about-character-property`}
-                onclick={() => (selectedProperty = "tools")}
+                aria-label="skills and spells"
+                class={`${selectedProperty === "skills and spells" ? "property-selector-active" : ""} about-character-property`}
+                onclick={() => (selectedProperty = "skills and spells")}
             >
                 <svg
                     class="property-selector"
@@ -90,8 +88,8 @@
 
             <button
                 aria-label="applications"
-                class={`${selectedProperty === "apps" ? "property-selector-active" : ""} about-character-property`}
-                onclick={() => (selectedProperty = "apps")}
+                class={`${selectedProperty === "forge tools" ? "property-selector-active" : ""} about-character-property`}
+                onclick={() => (selectedProperty = "forge tools")}
             >
                 <svg
                     class="property-selector"
@@ -121,43 +119,19 @@
                     />
                 </svg>
             </button>
-
-            <button
-                aria-label="workspace"
-                class={`${selectedProperty === "workspace" ? "property-selector-active" : ""} about-character-property`}
-                onclick={() => (selectedProperty = "workspace")}
-            >
-                <svg
-                    class="property-selector"
-                    version="1.1"
-                    id="XMLID_167_"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 24 24"
-                    xml:space="preserve"
-                >
-                    <g>
-                        <path
-                            d="M24,23H0v-7h2V1h20v15h2V23z M2,21h20v-3H2V21L2,21z M4,16h16V3H4V16z M18,14H6V5h12V14z M8,12h8V7H8V12z"
-                        />
-                    </g>
-                </svg>
-            </button>
         </div>
     </div>
 
     <div class="about-showed-property">
         <h2>{selectedProperty}</h2>
-        {#if selectedProperty === "presentation"}
-            <p>{@html $_("page.about.presentation")}</p>
-        {:else if selectedProperty === "tools"}
+        {#if selectedProperty === "biography"}
+            <p>{@html $_("page.about.biography")}</p>
+        {:else if selectedProperty === "skills and spells"}
             <Tools />
-        {:else if selectedProperty === "apps"}
+        {:else if selectedProperty === "forge tools"}
             <Apps />
         {:else if selectedProperty === "inventory"}
             <Inventory />
-        {:else if selectedProperty === "workspace"}
-            <Workspace />
         {/if}
     </div>
 </div>
@@ -165,7 +139,7 @@
 <style>
     /* About info */
     .about {
-        height: 30rem;
+        height: 40rem;
         display: flex;
         border: var(--border-width) solid var(--color-border);
         overflow: hidden;
@@ -211,9 +185,9 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: var(--padding-m);
+        gap: var(--padding-xl);
         padding: var(--padding-x);
-        overflow-y: scroll;
+        overflow-y: auto;
     }
     .about-showed-property h2 {
         text-transform: capitalize;

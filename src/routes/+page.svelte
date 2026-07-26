@@ -84,7 +84,7 @@
     </div>
 
     <div class="vim-title">
-        <p>Main Hub</p>
+        <p>Character Sheet</p>
         <p>{"[1:1]"}</p>
         <p>Done</p>
     </div>
@@ -97,14 +97,22 @@
         />
         <Card
             icon={"<path d='M8 8v5h4V8h-2V6H8v2zm-8 8h16V0H0v16zm2-2V2h12v12H2zM8 4h2V2H8v2zm2 2h2V4h-2v2zm-1 6v-2h2v2H9z' fill-rule='evenodd'/>"}
+            name={$_("page.home.links.experience")}
+            link={"/experience"}
+            newtab={false}
+        />
+        <Card
+            icon={`<path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 4C2.67157 4 2 4.67157 2 5.5C2 6.32843 2.67157 7 3.5 7H4V4H3.5ZM6 4V8C6 11.3137 8.68629 14 12 14C15.3137 14 18 11.3137 18 8V4H6ZM20 4V7H20.5C21.3284 7 22 6.32843 22 5.5C22 4.67157 21.3284 4 20.5 4H20ZM19.9381 9H20.5C22.433 9 24 7.433 24 5.5C24 3.567 22.433 2 20.5 2H19H5H3.5C1.567 2 0 3.567 0 5.5C0 7.433 1.567 9 3.5 9H4.06189C4.51314 12.6187 7.38128 15.4869 11 15.9381V17.5194L6.64922 21H6C5.44772 21 5 21.4477 5 22C5 22.5523 5.44772 23 6 23H7H17H18C18.5523 23 19 22.5523 19 22C19 21.4477 18.5523 21 18 21H17.3508L13 17.5194V15.9381C16.6187 15.4869 19.4869 12.6187 19.9381 9ZM12 19.2806L9.85078 21H14.1492L12 19.2806Z"/>`}
             name={$_("page.home.links.projects")}
             link={"/projects"}
             newtab={false}
+            x={24}
+            y={23}
         />
     </div>
 
     <div class="vim-title">
-        <p>Artworks and Showcases</p>
+        <p>The Artifacts</p>
         <p>{"[1:2]"}</p>
         <p>Done</p>
     </div>
@@ -135,7 +143,7 @@
     </div>
 
     <div class="vim-title">
-        <p>Contact</p>
+        <p>Send Raven</p>
         <p>{"[1:3]"}</p>
         <p>Done</p>
     </div>

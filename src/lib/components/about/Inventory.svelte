@@ -10,28 +10,28 @@
         <div>
             <enhanced:img src={CameraImg} alt="" loading="lazy"> </enhanced:img>
         </div>
-        <p>Nikon L19</p>
+        <p>Canon A3100 IS</p>
     </div>
 
     <div class="inventory-item">
         <div>
             <enhanced:img src={PhoneImg} alt="" loading="lazy"> </enhanced:img>
         </div>
-        <p>Mi Mix 2s</p>
+        <p>Samsung S23 Ultra</p>
     </div>
 
     <div class="inventory-item">
         <div>
             <enhanced:img src={IpodImg} alt="" loading="lazy"> </enhanced:img>
         </div>
-        <p>iPod Mini</p>
+        <p>ROG Ally</p>
     </div>
 
     <div class="inventory-item">
         <div>
             <enhanced:img src={DapImg} alt="" loading="lazy"> </enhanced:img>
         </div>
-        <p>Fiio M3K</p>
+        <p>Anbernic RG353PS</p>
     </div>
 </div>
 
