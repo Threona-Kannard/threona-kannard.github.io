@@ -20,7 +20,7 @@
     import PostmanImg from "$lib/assets/images/applications/postman.png?enhanced";
     import ProteusImg from "$lib/assets/images/applications/proteus.png?enhanced";
     import RiderImg from "$lib/assets/images/applications/rider.png?enhanced";
-    import UnrealImg from "$lib/assets/images/applications/ue.png?enhanced";
+    import UnrealImg from "$lib/assets/images/applications/UE.png?enhanced";
     import UnityImg from "$lib/assets/images/applications/unity.png?enhanced";
     import VsCodeImg from "$lib/assets/images/applications/vscode.png?enhanced";
     import LmStudioImg from "$lib/assets/images/applications/lmstudio.webp?enhanced";
