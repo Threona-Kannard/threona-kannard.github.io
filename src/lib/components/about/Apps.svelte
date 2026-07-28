@@ -26,6 +26,7 @@
     import LmStudioImg from "$lib/assets/images/applications/lmstudio.webp?enhanced";
     import GeminiImg from "$lib/assets/images/applications/gemini.png?enhanced";
     import CocosImg from "$lib/assets/images/applications/cocos.png?enhanced";
+    import JenkinsImg from "$lib/assets/images/applications/jenkins.webp?enhanced";
 </script>
 
 <div class="apps-container">
@@ -176,6 +177,13 @@
                 <enhanced:img src={PostmanImg} alt="" loading="lazy" />
             </div>
             <p>Postman</p>
+        </div>
+
+        <div class="app-entry">
+            <div class="app-image">
+                <enhanced:img src={JenkinsImg} alt="" loading="lazy" />
+            </div>
+            <p>Jenkins</p>
         </div>
 
         <div class="app-entry">
