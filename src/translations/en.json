@@ -55,6 +55,48 @@
         "projects": {
             "title": "Projects"
         },
+        "experience": {
+            "title": "Battle Logs",
+            "experiences": [
+                {
+                    "icon": "src/lib/assets/images/experiences/sparx.png?enhanced",
+                    "style": "width: 50px; height: 20px;",
+                    "title": "Technical Artist",
+                    "company": "Sparx* - a Virtuos Studio",
+                    "date": "Jan 2024 — Present",
+                    "desc": "<ul style=\"list-style-type: circle; padding-left: 2em;\"><li><b>Pipeline & Tool Development:</b> Designed and implemented end-to-end character art pipelines, authoring custom Python automation scripts for Maya, Photoshop, and Blender to streamline/enhanced content creation and asset management.</li><li><b>Unreal Engine Tooling:</b> Engineered in-editor workflow utilities and custom tools in Unreal Engine using Editor Utility Widgets and C++ to eliminate repetitive artist tasks and boost team productivity.</li><li><b>Full-Stack Pipeline Apps:</b> Built standalone desktop/web pipeline tools using Python backends and React frontends, providing artists with intuitive interfaces to interact seamlessly with DCC software and asset management systems.</li><li><b>Shaders & Visual Effects:</b> Authored real-time material shaders and dynamic particle/VFX systems in Unreal Engine, balancing high visual fidelity with strict <br/>frame-rate budget constraints.</li></ul>",
+                    "tags": ["Typescript", "Lua", "Javascript", "Git", "Cpp", "Csharp", "Mongodb", "Python", "Perforce", "Unreal Engine", "Unity", "Docker", "Jenkins"]
+                },
+                {
+                    "icon": "src/lib/assets/images/experiences/garena.png?enhanced",
+                    "style": "width: 60px; height: 50px; padding-left: 5px;",
+                    "title": "Game Engineer",
+                    "company": "Vietnam E-sport and Entertainment ,JSC (Garena)",
+                    "date": "June 2022 — May 2023",
+                    "desc": "Implement and publish games on a sandbox platform. Using Lua and visual script to implement the feature of the game:<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ranking and leaderboard features for users</li><li>Room matching feature</li><li>Using round-robin algorithms to make the match matching schedule</li><li>Manage user data</li></ul>",
+                    "tags": ["Scratch", "Lua", "Javascript", "Git", "Android"]
+                },
+                {
+                    "icon": "src/lib/assets/images/experiences/gameloft.png?enhanced",
+                    "style": "width: 50px; height: 50px;",
+                    "title": "Game Developer",
+                    "company": "Gameloft Co .Ltd",
+                    "date": "June 2021 — June 2022",
+                    "desc": "Create a new game with the idea from the game designers.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ported a C++ UWP game codebase across multi-platform targets, including Xbox, PlayStation, and Android.</li><li>Maintained and optimized In-App Purchase (IAP) integration across multiple platforms, ensuring reliable transaction processing and seamless user flow.</li><li>Prepared, configured, and deployed cross-platform game builds to storefronts such as Steam and Epic Games Store, ensuring compliance with platform release guidelines.</li><li>Conducted rigorous functional and regression testing across core APIs and game builds to catch critical bugs early and ensure seamless user experiences.</li><li>Automated project setup by writing custom Lua scripts to resolve dependencies, compile standalone source libraries, and link core modules into production builds.</li><li>Leveraged OpenGL, DirectX, and Vulkan to develop real-time graphic effects and graphics rendering pipelines.</li></ul>",
+                    "tags": ["Cpp", "Lua", "Git", "Android"]
+                    
+                },
+                {
+                    "icon": "src/lib/assets/images/experiences/gameloft.png?enhanced",
+                    "style": "width: 50px; height: 50px;",
+                    "title": "C++ Programmer Intern",
+                    "company": "Gameloft Co .Ltd",
+                    "date": "Jan 2021 — June 2021",
+                    "desc": "Create a core SDK that provides the necessary APIs for other developers to use to write mobile games. Develop project concepts and maintain optimal workflow.<br/> Work with senior developer to manage large, complex design of project structure.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li> Complete detailed programming and development tasks for APIs.</li><li>Carry out quality assurance tests to discover errors and optimize usability.</li><li>Make an automation operation process by using Jenkins.</li><li>Setup build tool for game using Batch/Bash and Lua script.</li><li>Using Lua to setup the project game from discrete source code and build the libs then connect to the project.</li></ul>",
+                    "tags": ["Cpp", "Lua", "Java", "Kotlin", "Git", "Android"]
+                }
+            ]
+        },
         "contact": {
             "title": "Send me a raven"
         },

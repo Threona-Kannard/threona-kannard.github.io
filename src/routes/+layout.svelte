@@ -1,6 +1,6 @@
 <script lang="ts">
     import "$lib/i18n";
-    import "../app.css";
+    import "../app.scss";
     import { _, isLoading, locale } from "svelte-i18n";
     import Header from "$lib/components/Header.svelte";
     import Sidebar from "$lib/components/Sidebar.svelte";

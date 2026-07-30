@@ -169,7 +169,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--padding-x);
-        margin: var(--padding-m) auto;
+        margin: var(--padding-m);
     }
 
     /* CHARACTER */
