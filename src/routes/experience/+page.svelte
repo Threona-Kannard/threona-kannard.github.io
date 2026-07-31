@@ -20,7 +20,7 @@
             <div class="timeline-dot">
                 <enhanced:img
                     src={e.icon}
-                    loading="lazy"
+                    loading="eager"
                     alt={e.company}
                     style={e.style}
                 />
