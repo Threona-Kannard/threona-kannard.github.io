@@ -9,7 +9,9 @@
 </script>
 
 {#each text as letter}
-    <span class={`wavy ${fadeIn ? "appear" : ""}`} style={`animation-delay: ${addDelay()}s;`}>{letter}</span
+    <span
+        class={`wavy ${fadeIn ? "appear" : ""}`}
+        style={`animation-delay: ${addDelay()}s;`}>{letter}</span
     >
 {/each}
 
@@ -21,7 +23,7 @@
 
     .appear {
         opacity: 0;
-        animation: fadein .1s linear forwards;
+        animation: fadein 0.1s linear forwards;
     }
 
     @keyframes wavyletter {

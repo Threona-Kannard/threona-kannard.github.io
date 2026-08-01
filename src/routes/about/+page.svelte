@@ -4,15 +4,12 @@
     import CharacterStats from "$lib/components/about/CharacterStats.svelte";
     import Tools from "$lib/components/about/Tools.svelte";
     import Apps from "$lib/components/about/Apps.svelte";
-    import Inventory from "$lib/components/about/Inventory.svelte"
+    import Inventory from "$lib/components/about/Inventory.svelte";
     import { onMount } from "svelte";
 
     let selectedProperty:
-        | "biography"
-        | "skills and spells"
-        | "forge tools"
-        | "inventory"
-        | "" = $state("biography");
+        "biography" | "skills and spells" | "forge tools" | "inventory" | "" =
+        $state("biography");
 
     onMount(() => {
         if (window.innerWidth < 728) {

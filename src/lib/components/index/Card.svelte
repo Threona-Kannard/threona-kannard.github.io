@@ -5,7 +5,7 @@
         link: string;
         newtab?: boolean;
         x?: number;
-        y?: number
+        y?: number;
     };
 
     const { name, icon, link, newtab, x = 16, y = 16 }: Props = $props();
@@ -25,9 +25,9 @@
 </a>
 
 <style>
-	:root {
-		--container-height: 5rem;
-	}
+    :root {
+        --container-height: 5rem;
+    }
 
     .container {
         height: var(--container-height);
@@ -36,16 +36,19 @@
         align-items: center;
         gap: var(--padding-m);
 
-        background: linear-gradient(transparent, var(--color-border)) center no-repeat;
-		background-position: 0px 100px;
-		transition: background-position .15s ease-in-out, box-shadow .3s;
+        background: linear-gradient(transparent, var(--color-border)) center
+            no-repeat;
+        background-position: 0px 100px;
+        transition:
+            background-position 0.15s ease-in-out,
+            box-shadow 0.3s;
         border: var(--color-fg) solid var(--border-width);
         padding: var(--padding-m);
         text-decoration: none;
     }
     .container:hover {
-		background-position: 0px 0px;
-		box-shadow: 0 0 10px 1px var(--color-border);
+        background-position: 0px 0px;
+        box-shadow: 0 0 10px 1px var(--color-border);
     }
 
     .container__icon {

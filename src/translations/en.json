@@ -65,7 +65,21 @@
                     "company": "Sparx* - a Virtuos Studio",
                     "date": "Jan 2024 — Present",
                     "desc": "<ul style=\"list-style-type: circle; padding-left: 2em;\"><li><b>Pipeline & Tool Development:</b> Designed and implemented end-to-end character art pipelines, authoring custom Python automation scripts for Maya, Photoshop, and Blender to streamline/enhanced content creation and asset management.</li><li><b>Unreal Engine Tooling:</b> Engineered in-editor workflow utilities and custom tools in Unreal Engine using Editor Utility Widgets and C++ to eliminate repetitive artist tasks and boost team productivity.</li><li><b>Full-Stack Pipeline Apps:</b> Built standalone desktop/web pipeline tools using Python backends and React frontends, providing artists with intuitive interfaces to interact seamlessly with DCC software and asset management systems.</li><li><b>Shaders & Visual Effects:</b> Authored real-time material shaders and dynamic particle/VFX systems in Unreal Engine, balancing high visual fidelity with strict <br/>frame-rate budget constraints.</li></ul>",
-                    "tags": ["Typescript", "Lua", "Javascript", "Git", "Cpp", "Csharp", "Mongodb", "Python", "Perforce", "Unreal Engine", "Unity", "Docker", "Jenkins"]
+                    "tags": [
+                        "Typescript",
+                        "Lua",
+                        "Javascript",
+                        "Git",
+                        "Cpp",
+                        "Csharp",
+                        "Mongodb",
+                        "Python",
+                        "Perforce",
+                        "Unreal Engine",
+                        "Unity",
+                        "Docker",
+                        "Jenkins"
+                    ]
                 },
                 {
                     "icon": "/src/lib/assets/images/experiences/garena.png?enhanced",
@@ -84,7 +98,6 @@
                     "date": "June 2021 — June 2022",
                     "desc": "Create a new game with the idea from the game designers.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ported a C++ UWP game codebase across multi-platform targets, including Xbox, PlayStation, and Android.</li><li>Maintained and optimized In-App Purchase (IAP) integration across multiple platforms, ensuring reliable transaction processing and seamless user flow.</li><li>Prepared, configured, and deployed cross-platform game builds to storefronts such as Steam and Epic Games Store, ensuring compliance with platform release guidelines.</li><li>Conducted rigorous functional and regression testing across core APIs and game builds to catch critical bugs early and ensure seamless user experiences.</li><li>Automated project setup by writing custom Lua scripts to resolve dependencies, compile standalone source libraries, and link core modules into production builds.</li><li>Leveraged OpenGL, DirectX, and Vulkan to develop real-time graphic effects and graphics rendering pipelines.</li></ul>",
                     "tags": ["Cpp", "Lua", "Git", "Android"]
-                    
                 },
                 {
                     "icon": "/src/lib/assets/images/experiences/gameloft.png?enhanced",

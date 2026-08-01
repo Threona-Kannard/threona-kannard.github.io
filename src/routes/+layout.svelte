@@ -9,11 +9,15 @@
     import GuraSpinImg from "$lib/assets/images/gawr-spin.gif";
 
     let { children } = $props();
-    const loadingMessage = $derived($locale ? $_("page.background.loading") : "Waiting for the content to load...");
+    const loadingMessage = $derived(
+        $locale
+            ? $_("page.background.loading")
+            : "Waiting for the content to load..."
+    );
 </script>
 
 <div id="app">
-    <img src={FrameImg} class="frame" alt="">
+    <img src={FrameImg} class="frame" alt="" />
     <div class="polka"></div>
     <div class="crt"></div>
 
@@ -40,7 +44,7 @@
         width: 100dvw;
 
         pointer-events: none;
-		transition: 0s;
+        transition: 0s;
         z-index: 999999999;
     }
 
@@ -72,28 +76,33 @@
         z-index: -1;
     }
 
-      .crt {
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            top:            0;
-            left:           0;
+    .crt {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
 
-            background:     repeating-linear-gradient(#0000001d, #0000001d 3px, #00000000 3px, #00000000 10px);
-            pointer-events: none;
+        background: repeating-linear-gradient(
+            #0000001d,
+            #0000001d 3px,
+            #00000000 3px,
+            #00000000 10px
+        );
+        pointer-events: none;
 
-            animation:      scanlines-scroll 15s infinite linear;
-            z-index:        1001;
-        }
+        animation: scanlines-scroll 15s infinite linear;
+        z-index: 1001;
+    }
 
-        @keyframes scanlines-scroll {
-            0% {
+    @keyframes scanlines-scroll {
+        0% {
             background-position: 0 0;
-            }
-            100% {
-            background-position: 0 100px;
-            }
         }
+        100% {
+            background-position: 0 100px;
+        }
+    }
 
     main {
         display: flex;

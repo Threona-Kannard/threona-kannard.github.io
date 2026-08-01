@@ -2,6 +2,9 @@
     import { _, locale } from "svelte-i18n";
     import Separator from "$lib/components/Separator.svelte";
     import Project from "$lib/components/projects/Project.svelte";
+    import SparxImg from "/src/lib/assets/images/experiences/sparx.png?enhanced";
+    import GarenaImg from "/src/lib/assets/images/experiences/garena.png?enhanced";
+    import GameloftImg from "/src/lib/assets/images/experiences/gameloft.png?enhanced";
 
     const exp: any = $_("page.experience.experiences");
 </script>
@@ -20,7 +23,7 @@
             <div class="timeline-dot">
                 <enhanced:img
                     src={e.icon}
-                    loading="eager"
+                    loading="lazy"
                     alt={e.company}
                     style={e.style}
                 />

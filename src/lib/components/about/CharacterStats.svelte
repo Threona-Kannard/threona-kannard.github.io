@@ -7,10 +7,7 @@
 
 <div class="about-character-view">
     <div class="about-character-img">
-        <img
-            src={CharacterImg}
-            alt="Character walking"
-        />
+        <img src={CharacterImg} alt="Character walking" />
     </div>
 
     <Separator margin={false} />
@@ -42,7 +39,7 @@
             <p>Mid-level</p></span
         >
     </div>
-    <Separator/>
+    <Separator />
     <span class="italic text-justify text-base font-bold">
         {@html $_("page.about.stats.creed")}
     </span>
@@ -55,7 +52,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--padding-s);
-        
+
         border-right: var(--border-width) solid var(--color-border);
         padding: var(--padding-m);
     }

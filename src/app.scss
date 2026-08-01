@@ -11,21 +11,21 @@
     --color-warning: #fa855a;
     --color-blue-retro: #3b52eb28;
     --color-cream: #ffedad;
-    
+
     --padding-s: 0.5rem;
     --padding-m: 1rem;
     --padding-x: 1.5rem;
     --padding-xl: 3rem;
     --padding-main-x: clamp(1rem, 15vw, 20rem);
     --padding-main-y: 3rem;
-    
+
     --header-height: 4rem;
     --sidebar-width: 10rem;
-    
+
     --border-width: 0.15rem;
 }
 
-@theme{
+@theme {
     --color-bg: var(--color-bg);
     --color-dark: var(--color-dark);
     --color-fg: var(--color-fg);
@@ -81,7 +81,6 @@ a:hover {
     span {
         color: var(--color-border);
     }
-
 }
 
 .subtitle {

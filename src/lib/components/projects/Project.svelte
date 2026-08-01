@@ -54,7 +54,7 @@
 
         display: grid;
         grid-template-columns: 5rem 1fr;
-        grid-template-rows: 1fr min-content; 
+        grid-template-rows: 1fr min-content;
         gap: var(--padding-s);
 
         background-color: var(--color-dark);

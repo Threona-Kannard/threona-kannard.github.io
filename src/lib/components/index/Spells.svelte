@@ -62,7 +62,7 @@
         justify-content: space-between;
         gap: var(--padding-s);
         p {
-            color: var(--color-accent)
+            color: var(--color-accent);
         }
     }
 
