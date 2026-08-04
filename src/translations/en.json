@@ -59,7 +59,7 @@
             "title": "Battle Logs",
             "experiences": [
                 {
-                    "icon": "/src/lib/assets/images/experiences/sparx.png?enhanced",
+                    "icon": "sparx",
                     "style": "width: 50px; height: 20px;",
                     "title": "Technical Artist",
                     "company": "Sparx* - a Virtuos Studio",
@@ -82,7 +82,7 @@
                     ]
                 },
                 {
-                    "icon": "/src/lib/assets/images/experiences/garena.png?enhanced",
+                    "icon": "garena",
                     "style": "width: 60px; height: 50px; padding-left: 5px;",
                     "title": "Game Engineer",
                     "company": "Vietnam E-sport and Entertainment ,JSC (Garena)",
@@ -91,7 +91,7 @@
                     "tags": ["Scratch", "Lua", "Javascript", "Git", "Android"]
                 },
                 {
-                    "icon": "/src/lib/assets/images/experiences/gameloft.png?enhanced",
+                    "icon": "gameloft",
                     "style": "width: 50px; height: 50px;",
                     "title": "Game Developer",
                     "company": "Gameloft Co .Ltd",
@@ -100,7 +100,7 @@
                     "tags": ["Cpp", "Lua", "Git", "Android"]
                 },
                 {
-                    "icon": "/src/lib/assets/images/experiences/gameloft.png?enhanced",
+                    "icon": "gameloft",
                     "style": "width: 50px; height: 50px;",
                     "title": "C++ Programmer Intern",
                     "company": "Gameloft Co .Ltd",

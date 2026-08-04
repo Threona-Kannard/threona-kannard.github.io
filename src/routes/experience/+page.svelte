@@ -1,12 +1,12 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _, json } from "svelte-i18n";
     import Separator from "$lib/components/Separator.svelte";
     import Project from "$lib/components/projects/Project.svelte";
     import SparxImg from "/src/lib/assets/images/experiences/sparx.png?enhanced";
     import GarenaImg from "/src/lib/assets/images/experiences/garena.png?enhanced";
     import GameloftImg from "/src/lib/assets/images/experiences/gameloft.png?enhanced";
 
-    const exp: any = $_("page.experience.experiences");
+    const exp: any = $json("page.experience.experiences");
 </script>
 
 <svelte:head>
@@ -17,16 +17,32 @@
 
 <Separator />
 
-<div class="project-list">
+<div class="project-list scroll">
     {#each exp as e}
         <div class="timeline-item">
             <div class="timeline-dot">
-                <enhanced:img
-                    src={e.icon}
-                    loading="lazy"
-                    alt={e.company}
-                    style={e.style}
-                />
+                {#if e.icon === "sparx"}
+                    <enhanced:img
+                        src={SparxImg}
+                        alt="Sparx icon"
+                        loading="lazy"
+                        style={e.style}
+                    />
+                {:else if e.icon === "garena"}
+                    <enhanced:img
+                        src={GarenaImg}
+                        alt="Garena icon"
+                        loading="lazy"
+                        style={e.style}
+                    />
+                {:else if e.icon === "gameloft"}
+                    <enhanced:img
+                        src={GameloftImg}
+                        alt="Gameloft icon"
+                        loading="lazy"
+                        style={e.style}
+                    />
+                {/if}
             </div>
             <div class="timeline-body">
                 <div class="timeline-title">{e.title}</div>
@@ -183,11 +199,11 @@
         position: relative;
 
         .timeline-body {
-            background: linear-gradient(transparent, var(--color-blue-retro))
+            background: linear-gradient(to bottom, var(--color-blue-retro))
                 center no-repeat;
             background-position: 0px 1000px;
-            border-bottom: var(--border-width) solid transparent;
-            border-top: var(--border-width) solid transparent;
+            // border-bottom: var(--border-width) solid transparent;
+            // border-top: var(--border-width) solid transparent;
             text-decoration: none;
             transition: 0.2s cubic-bezier(0, 1.8, 1, -1.51);
         }
@@ -202,9 +218,9 @@
                 box-shadow: 0 0 30px var(--color-cream);
             }
             .timeline-body {
-                background-position: 0px 7px;
-                box-shadow: 0 60px 25px 10px var(--color-blue-retro);
-                border-bottom: var(--border-width) solid var(--color-blue-retro);
+                background-position: 0px 0px;
+                box-shadow: 0 0 20px 15px var(--color-blue-retro);
+                // border-bottom: var(--border-width) solid var(--color-blue-retro);
             }
 
             .hr.anim {
@@ -220,10 +236,10 @@
     .timeline-item::before {
         content: "";
         position: absolute;
-        left: 47px;
+        left: 46px;
         top: 85px;
         bottom: -45px;
-        width: 2px;
+        width: 3px;
         background: linear-gradient(180deg, var(--color-border), transparent);
     }
     .timeline-item:last-child::before {
@@ -400,5 +416,46 @@
     .tag-jenkins {
         background-color: var(--tag-jenkins-bg);
         border-color: var(--tag-jenkins-border);
+    }
+
+    .scroll {
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        /* Width of the scroll bar */
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track (background) */
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        /* Thumb (the moving part) */
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+        &:hover {
+            &::-webkit-scrollbar-thumb {
+                background: var(--color-cream);
+                border-radius: 6px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: var(--color-border);
+                border: 2px solid var(--color-dark);
+                border-radius: 6px;
+            }
+
+            /* On hover */
+            &::-webkit-scrollbar-thumb:active {
+                background: var(--color-accent);
+            }
+            &::-webkit-scrollbar-track:active {
+                background: var(--color-blue-retro);
+            }
+        }
     }
 </style>
