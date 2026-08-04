@@ -57,6 +57,20 @@
                         </dir>
                     {/each}
                 </div>
+                <button class="project-link" onclick={() => window.open("/projects", "_self")} title="View Project">
+                    <svg
+                        class="project-nav"
+                        fill="var(--color-fg)"
+                        width="2rem"
+                        height="2rem"
+                        viewBox="0 0 12 20"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        ><path
+                            d="m 12.000001,8 v 4 H 8 v 4 H 4 v 4 H 0 V 0 h 4 v 4 h 4 v 4 z"
+                        /></svg
+                    >
+                </button>
             </div>
         </div>
     {/each}
@@ -64,6 +78,41 @@
 
 <style lang="scss">
     $barsize: 15px;
+
+    .project-link {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: var(--padding-s);
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            .project-nav {
+                fill: var(--color-accent);
+            }
+        }
+    }
+
+    .project-nav {
+        height: 2rem;
+        width: 2rem;
+        top: 0;
+        animation: projectArrow 2s ease infinite;
+    }
+
+    /* ANIMATIONS */
+    @keyframes projectArrow {
+        0%,
+        100% {
+            margin-right: 0rem;
+        }
+        50% {
+            margin-right: 1rem;
+        }
+    }
+
     .hr {
         width: 63vw;
         height: 1px;
