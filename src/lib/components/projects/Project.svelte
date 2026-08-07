@@ -8,195 +8,272 @@
         $props();
 </script>
 
-<div class="project-container">
-    <enhanced:img src={img} class="project-icon" alt="" />
-
-    <div class="project-info">
-        <h3>{name}</h3>
-        <p>{description}</p>
-    </div>
-
-    <div class="project-tags">
-        {#each tags as tag}
-            <dir class={`project-tag tag-${tag.toLowerCase()}`}>
-                <p>{tag}</p>
-            </dir>
-        {/each}
+<div class="accordion-section">
+    <enhanced:img src={img} alt="" class="project-img" loading="lazy" />
+    <p class="title-vertical">{name}</p>
+    <div class="section-content">
+        <h3 class="section-title">{name}</h3>
+        <p class="section-description">
+            {description}
+        </p>
+        <div class="project-tags">
+            {#each tags as tag}
+                <span>{tag}</span>
+            {/each}
+        </div>
+        <a href="/" class="view-button">View Project</a>
     </div>
 </div>
 
 <style>
+    @media (max-width: 700px) {
+        .accordion-section {
+            height: 60px;
+            margin: 4px 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .accordion-section:hover {
+            height: 240px;
+        }
+
+        .title-vertical {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            white-space: nowrap;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 1;
+            transition: opacity var(--transition-time) ease;
+            text-transform: uppercase;
+        }
+
+        .section-content {
+            padding: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+        }
+
+        .section-description {
+            font-size: 0.8rem;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+    }
+
     :root {
-        --tag-docker-bg: #2b5f75be;
-        --tag-docker-border: #2c6cbe;
-        --tag-java-bg: #75492bbe;
-        --tag-java-border: #76562c;
-        --tag-mongodb-bg: #2f752bbe;
-        --tag-mongodb-border: #40762c;
-        --tag-kotlin-bg: #612b75be;
-        --tag-kotlin-border: #6c2cbe;
-        --tag-react-bg: #362b75be;
-        --tag-react-border: #3c2cbe;
-        --tag-redis-bg: #752b2bbe;
-        --tag-redis-border: #762c2c;
-        --tag-rust-bg: #75412bbe;
-        --tag-rust-border: #76462c;
-        --tag-sqlite-bg: #752b5cbe;
-        --tag-sqlite-border: #6f2cbe;
-        --tag-svelte-bg: #75552bbe;
-        --tag-svelte-border: #76542c;
-        --tag-typescript-bg: #2b4275be;
-        --tag-typescript-border: #2c42be;
+        --transition-time: 1s;
+        --bg-color: #0f0f0f;
+        --text-color: #e6e6e6;
+        --accent-color: #2a2a2a;
+        --hover-color: #363636;
+        --highlight-color: #525252;
     }
 
-    .project-container {
+    .accordion-section {
         position: relative;
-
-        display: grid;
-        grid-template-columns: 5rem 1fr;
-        grid-template-rows: 1fr min-content;
-        gap: var(--padding-s);
-
-        background-color: var(--color-dark);
+        flex: 1;
+        height: 90%;
         overflow: hidden;
-        padding: var(--padding-s);
+        background-color: var(--accent-color);
+        border-radius: 8px;
+        margin: 0 4px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: flex-end;
+        cursor: default;
+        transition:
+            flex var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1),
+            visibility 0s linear 0s; /* Hidden delay reset immediately on open */
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                0deg,
+                transparent,
+                transparent 30%,
+                color-mix(in srgb, var(--color-border) 35%, transparent)
+            );
+            transform: rotate(-45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            transform: rotate(-45deg) translateY(150%);
+        }
+
+        &.hidden {
+            flex: 0;
+            visibility: hidden;
+
+            transition:
+                flex var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1),
+                visibility 0s linear var(--transition-time); /* Delays visibility:hidden until flex finishes */
+        }
     }
 
-    .project-container:hover::before {
-        content: "";
+    .accordion-section:first-child {
+        margin-left: 1%;
+    }
+
+    .accordion-section:last-child {
+        margin-right: 2%;
+    }
+
+    .accordion-section:hover {
+        flex: 6;
+        background-color: var(--hover-color);
+        box-shadow: 0 0 20px var(--color-border);
+    }
+
+    .accordion-section:hover .section-content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .accordion-section:hover .title-vertical {
+        opacity: 0;
+    }
+
+    .accordion-section:hover .project-img {
+        opacity: 0.2;
+        transform: scale(1.05);
+    }
+
+    .accordion-section:hover .project-tags span {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-img {
         position: absolute;
-        top: 0%;
-        left: -70%;
-        height: 100%;
-        width: 5rem;
-
-        animation: shine 2s;
-        background-color: var(--color-fg);
-        opacity: 0.1;
-        transform: skewX(-25deg);
-    }
-
-    .project-icon {
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
-        grid-area: 1 / 1 / 2 / 2;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.1;
+        transition: all var(--transition-time) ease;
+        transform: scale(1.2);
     }
 
-    .project-info {
-        grid-area: 1 / 2 / 2 / 3;
+    .title-vertical {
+        position: absolute;
+        top: 90%;
+        left: 10%;
+        transform: rotate(-90deg);
+        white-space: nowrap;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        opacity: 1;
+        transition: opacity var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1);
+        text-transform: uppercase;
+    }
+
+    .section-content {
+        padding: 1.5rem;
+        width: 100%;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all var(--transition-time) ease;
+        transition-delay: 0.1s;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        opacity: 0.9;
     }
 
     .project-tags {
-        grid-area: 2 / 1 / 3 / 3;
-
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--padding-s);
+        gap: 8px;
+        margin-top: 1rem;
     }
 
-    .project-tag {
-        height: fit-content;
-        padding: 0.1rem 0.5rem;
-        background-color: var(--tag-bg);
-        border-radius: 0.75rem;
-        border: solid var(--border-width) var(--tag-border);
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
     }
 
-    /* TAG COLORS :3 */
-    .tag-docker {
-        background-color: var(--tag-docker-bg);
-        border-color: var(--tag-docker-border);
+    .project-tags span:nth-child(1) {
+        transition-delay: 0.1s;
     }
-    .tag-java {
-        background-color: var(--tag-java-bg);
-        border-color: var(--tag-java-border);
+    .project-tags span:nth-child(2) {
+        transition-delay: 0.15s;
     }
-    .tag-mongodb {
-        background-color: var(--tag-mongodb-bg);
-        border-color: var(--tag-mongodb-border);
+    .project-tags span:nth-child(3) {
+        transition-delay: 0.2s;
     }
-    .tag-kotlin {
-        background-color: var(--tag-kotlin-bg);
-        border-color: var(--tag-kotlin-border);
-    }
-    .tag-react {
-        background-color: var(--tag-react-bg);
-        border-color: var(--tag-react-border);
-    }
-    .tag-redis {
-        background-color: var(--tag-redis-bg);
-        border-color: var(--tag-redis-border);
-    }
-    .tag-rust {
-        background-color: var(--tag-rust-bg);
-        border-color: var(--tag-rust-border);
-    }
-    .tag-sqlite {
-        background-color: var(--tag-sqlite-bg);
-        border-color: var(--tag-sqlite-border);
-    }
-    .tag-svelte {
-        background-color: var(--tag-svelte-bg);
-        border-color: var(--tag-svelte-border);
-    }
-    .tag-typescript {
-        background-color: var(--tag-typescript-bg);
-        border-color: var(--tag-typescript-border);
+    .project-tags span:nth-child(4) {
+        transition-delay: 0.25s;
     }
 
-    /* ANIMATIONS */
-    @keyframes shine {
-        0% {
-            left: -20%;
-            filter: blur(10px);
-        }
-        50% {
-            filter: blur(0px);
-        }
-        100% {
-            left: 110%;
-            filter: blur(10px);
-        }
+    .view-button {
+        display: inline-block;
+        margin-top: 1.2rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 16px;
+        background-color: transparent;
+        border: 1px solid var(--text-color);
+        color: var(--text-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* RESPONSIVE */
-    @media screen and (max-width: 728px) {
-        .project-info p {
-            font-size: small;
-        }
-
-        .project-tags {
-            align-content: center;
-        }
-        .project-tag p {
-            font-size: 0.7rem;
-        }
+    .view-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: var(--text-color);
+        transition: all 0.3s ease;
+        z-index: -1;
     }
 
-    /* LIGHT MODE */
-    @media (prefers-color-scheme: light) {
-        :root {
-            --tag-docker-bg: #57acd1be;
-            --tag-docker-border: #4596a2;
-            --tag-java-bg: #d9844bbe;
-            --tag-java-border: #8f652f;
-            --tag-mongodb-bg: #39bc32be;
-            --tag-mongodb-border: #478630;
-            --tag-kotlin-bg: #9c2ac6be;
-            --tag-kotlin-border: #7026d0;
-            --tag-react-bg: #856fffbe;
-            --tag-react-border: #3220c1;
-            --tag-redis-bg: #e55757be;
-            --tag-redis-border: #ad3737;
-            --tag-rust-bg: #df6632be;
-            --tag-rust-border: #9c4d22;
-            --tag-sqlite-bg: #d35eacbe;
-            --tag-sqlite-border: #aa36b7;
-            --tag-svelte-bg: #ff621fbe;
-            --tag-svelte-border: #d04c18;
-            --tag-typescript-bg: #3c6dd6be;
-            --tag-typescript-border: #4d65f0;
-        }
+    .view-button:hover {
+        color: var(--bg-color);
+    }
+
+    .view-button:hover::before {
+        left: 0;
     }
 </style>

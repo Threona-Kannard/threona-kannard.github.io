@@ -57,6 +57,7 @@
                         </dir>
                     {/each}
                 </div>
+                {#if e.hasProject}
                 <button class="project-link" onclick={() => window.open("/projects", "_self")} title="View Project">
                     <svg
                         class="project-nav"
@@ -71,6 +72,7 @@
                         /></svg
                     >
                 </button>
+                {/if}
             </div>
         </div>
     {/each}
