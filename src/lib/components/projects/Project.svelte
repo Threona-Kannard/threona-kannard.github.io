@@ -89,8 +89,7 @@
         align-items: flex-end;
         cursor: default;
         transition:
-            flex var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1),
-            visibility 0s linear 0s; /* Hidden delay reset immediately on open */
+            flex var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1); /* Hidden delay reset immediately on open */
 
         &::before {
             content: "";
@@ -113,15 +112,6 @@
         &:hover::before {
             opacity: 1;
             transform: rotate(-45deg) translateY(150%);
-        }
-
-        &.hidden {
-            flex: 0;
-            visibility: hidden;
-
-            transition:
-                flex var(--transition-time) cubic-bezier(0.25, 1, 0.5, 1),
-                visibility 0s linear var(--transition-time); /* Delays visibility:hidden until flex finishes */
         }
     }
 

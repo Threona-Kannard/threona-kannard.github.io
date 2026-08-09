@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { _ } from "svelte-i18n";
+    import { _, json } from "svelte-i18n";
     import { onMount } from "svelte";
     import Separator from "$lib/components/Separator.svelte";
     import Project from "$lib/components/projects/Project.svelte";
@@ -10,23 +10,104 @@
     import DnDAbenyuImg from "$lib/assets/images/projects/dnd_abenyu.webp?enhanced";
     import RyokoImg from "$lib/assets/images/projects/ryoko.webp?enhanced";
 
-    let showSparxOnly = false;
+    type ProjectData = {
+        title: string;
+        desc: string;
+        image: string;
+        tags: string[];
+    };
+
+    let showSparxOnly = $state(false);
+    let showPersonalOnly = $state(false);
+    let showTechArtOnly = $state(false);
+    let showGameDevOnly = $state(false);
+    let showAll = $state(true);
+
+    const projectData = ($json("page.projects.projects") ??
+        []) as ProjectData[];
+
+    const projects: any = projectData.map((project) => ({
+        title: project.title,
+        desc: project.desc,
+        image: (() => {
+            switch (project.image) {
+                case "rubiu5":
+                    return Rubiu5Img;
+                case "archan":
+                    return ArchanImg;
+                case "starMC":
+                    return StarMCImg;
+                case "dnd_abenyu":
+                    return DnDAbenyuImg;
+                case "ryoko":
+                    return RyokoImg;
+                default:
+                    return "";
+            }
+        })(),
+        tags: project.tags,
+    }));
+
+    const filterProjects = $derived.by(() => {
+        const enabledFilters = [
+            showSparxOnly && "Sparx*",
+            showPersonalOnly && "Personal",
+            showTechArtOnly && "TechArt",
+            showGameDevOnly && "GameDev",
+        ].filter(Boolean) as string[];
+
+        if (showAll || enabledFilters.length === 0) {
+            return projects;
+        }
+
+        return projects.filter((project: any) =>
+            enabledFilters.every((filter) => project.tags.includes(filter))
+        );
+    });
+
+    const projectAccordions = $derived.by(() => {
+        const accordions: any[][] = [];
+
+        for (let index = 0; index < filterProjects.length; index += 7) {
+            accordions.push(filterProjects.slice(index, index + 7));
+        }
+
+        return accordions;
+    });
 
     onMount(() => {
+        const filterName = new URLSearchParams(window.location.search).get(
+            "filter"
+        );
+        if (filterName) {
+            document
+                .querySelector<HTMLButtonElement>(
+                    `button[name="${filterName}"]`
+                )
+                ?.click();
+        }
 
         const handleResponsive = () => {
             if (window.innerWidth <= 700) {
-                document.querySelectorAll<HTMLElement>(".accordion-section").forEach((section) => {
-                    section.addEventListener("click", () => {
-                        document.querySelectorAll<HTMLElement>(".accordion-section").forEach((s) => {
-                            s.setAttribute("style", "flex: 1;");
-                            if (s !== section) {
-                                s?.querySelector(".section-content")?.setAttribute("style", "opacity: 0;");
-                            }
+                document
+                    .querySelectorAll<HTMLElement>(".accordion-section")
+                    .forEach((section) => {
+                        section.addEventListener("click", () => {
+                            document
+                                .querySelectorAll<HTMLElement>(
+                                    ".accordion-section"
+                                )
+                                .forEach((s) => {
+                                    s.setAttribute("style", "flex: 1;");
+                                    if (s !== section) {
+                                        s?.querySelector(
+                                            ".section-content"
+                                        )?.setAttribute("style", "opacity: 0;");
+                                    }
+                                });
+                            section.setAttribute("style", "flex: 6;");
                         });
-                        section.setAttribute("style", "flex: 6;");
                     });
-                });
             }
         };
 
@@ -39,8 +120,77 @@
     });
 
     const handleFilter = (event: Event) => {
-        const checkbox = event.target as HTMLInputElement;
-        showSparxOnly = checkbox.checked;
+        const button = event.currentTarget as HTMLButtonElement;
+
+        if (button.name === "all") {
+            showAll = true;
+            showSparxOnly = false;
+            showPersonalOnly = false;
+            showTechArtOnly = false;
+            showGameDevOnly = false;
+            document
+                .querySelectorAll<HTMLButtonElement>(".filter-btn")
+                .forEach((filterButton) =>
+                    filterButton.classList.toggle(
+                        "active",
+                        filterButton.name === "all"
+                    )
+                );
+            return;
+        }
+
+        button.classList.toggle("active");
+        showAll = false;
+        document
+            .querySelector<HTMLButtonElement>('button[name="all"]')
+            ?.classList.remove("active");
+
+        if (button.name === "sparx") {
+            showSparxOnly = button.classList.contains("active") ? true : false;
+            if (showSparxOnly) {
+                showPersonalOnly = false;
+                document
+                    .querySelector<HTMLButtonElement>('button[name="personal"]')
+                    ?.classList.remove("active");
+            }
+            console.log("showSparxOnly:", showSparxOnly);
+        }
+        if (button.name === "personal") {
+            showPersonalOnly = button.classList.contains("active")
+                ? true
+                : false;
+            if (showPersonalOnly) {
+                showSparxOnly = false;
+                document
+                    .querySelector<HTMLButtonElement>('button[name="sparx"]')
+                    ?.classList.remove("active");
+            }
+            console.log("showPersonalOnly:", showPersonalOnly);
+        }
+        if (button.name === "techart") {
+            showTechArtOnly = button.classList.contains("active")
+                ? true
+                : false;
+            console.log("showTechArtOnly:", showTechArtOnly);
+        }
+        if (button.name === "gamedev") {
+            showGameDevOnly = button.classList.contains("active")
+                ? true
+                : false;
+            console.log("showGameDevOnly:", showGameDevOnly);
+        }
+
+        if (
+            !showSparxOnly &&
+            !showPersonalOnly &&
+            !showTechArtOnly &&
+            !showGameDevOnly
+        ) {
+            showAll = true;
+            document
+                .querySelector<HTMLButtonElement>('button[name="all"]')
+                ?.classList.add("active");
+        }
     };
 </script>
 
@@ -50,48 +200,42 @@
 
 <h1 class="title">{$_("page.projects.title")}</h1>
 
-<Separator />
+<Separator margin={false}/>
 
 <div class="portfolio-container">
     <div class="header-container">
-        <h1>Sparx* - a Virtuos Studio</h1>
-        <p>
-            A collection of my personal and collaborative projects, showcasing
-            my skills in design, development, and creative problem-solving.
-        </p>
-        <input class="filter" placeholder="Sparx*" type="checkbox" onchange={handleFilter}/>
+        <h1>Filters:</h1>
+        <div class="filter-btns">
+            <button class="filter-btn active" onclick={handleFilter} name="all"
+                >All</button
+            >
+            <button class="filter-btn" onclick={handleFilter} name="sparx"
+                >Sparx*</button
+            >
+            <button class="filter-btn" onclick={handleFilter} name="techart"
+                >TechArt</button
+            >
+            <button class="filter-btn" onclick={handleFilter} name="gamedev"
+                >GameDev</button
+            >
+            <button class="filter-btn" onclick={handleFilter} name="personal"
+                >Personal</button
+            >
+        </div>
     </div>
-    <div class="accordion">
-        <Project
-            name="Rubiu5"
-            description="A collaborative project with Rubiu5, focusing on innovative web design and interactive experiences."
-            img={Rubiu5Img}
-            tags={["Web Design", "Collaboration", "Interactive", "Sparx*"]}>
-        </Project>
-        <Project
-            name="Archan"
-            description="A solo project exploring the intersection of architecture and digital media."
-            img={ArchanImg}
-            tags={["Architecture", "Digital Media", "Exploration", "Sparx*"]}>
-        </Project>
-        <Project
-            name="StarMC"
-            description="A Minecraft-inspired game development project with a focus on community building."
-            img={StarMCImg}
-            tags={["Game Development", "Community", "Minecraft"]}>
-        </Project>
-        <Project
-            name="DnD Abenyu"
-            description="A tabletop RPG campaign set in the world of Abenyu, featuring custom character classes and magic systems."
-            img={DnDAbenyuImg}
-            tags={["Tabletop RPG", "Worldbuilding", "Character Design", "Sparx*"]}>
-        </Project>
-        <Project
-            name="Ryoko"
-            description="A personal branding project for a creative professional, emphasizing minimalism and functionality."
-            img={RyokoImg}
-            tags={["Branding", "Identity", "Minimalism"]}>
-        </Project>
+    <div class="accordion-container scroll">
+        {#each projectAccordions as accordionProjects}
+            <div class="accordion">
+                {#each accordionProjects as project}
+                    <Project
+                        name={project.title}
+                        description={project.desc}
+                        img={project.image}
+                        tags={project.tags}
+                    ></Project>
+                {/each}
+            </div>
+        {/each}
     </div>
 </div>
 
@@ -102,8 +246,10 @@
         --accent-color: #2a2a2a;
         --hover-color: #363636;
         --highlight-color: #525252;
+        --fontSize: 18px;
     }
     .portfolio-container {
+        margin-top: -1rem;
         width: 75vw;
         height: 625px;
         display: flex;
@@ -111,7 +257,7 @@
         overflow: hidden;
         position: relative;
 
-        &:has(*:hover){
+        &:has(*:hover) {
             .header-container h1::after {
                 width: 150%;
             }
@@ -119,7 +265,7 @@
     }
 
     .header-container {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
         text-align: left;
         position: relative;
         z-index: 10;
@@ -146,12 +292,67 @@
         transition: width 0.5s ease;
     }
 
-    .header-container p {
-        font-size: 0.85rem;
-        opacity: 0.7;
-        max-width: 80%;
-        margin: 1rem 0 0;
-        line-height: 1.5;
+    .filter-btns {
+        text-align: left;
+        width: 100%;
+        white-space: nowrap;
+        margin-top: 1.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .filter-btn {
+        font-size: var(--fontSize);
+        font-family: "departure-mono", monospace;
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+        margin: 0 calc(var(--fontSize) * 0.25);
+        background: transparent;
+        display: inline-block;
+        border-radius: 20px;
+        border: none;
+        color: var(--color-fg);
+        border: 3px solid var(--color-border);
+        padding: calc(var(--fontSize) * 0.8) calc(var(--fontSize) * 1.6);
+        cursor: pointer;
+        appearance: none;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            box-shadow: 0 0 12px 3px var(--color-accent);
+        }
+
+        &:global(.active) {
+            background: var(--color-warning);
+            border: 3px solid var(--color-border);
+
+            &:hover {
+                background: var(--color-blue);
+                box-shadow: none;
+            }
+        }
+    }
+
+    .filter-btn:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: calc(var(--fontSize) * 0.7);
+        top: 0;
+        width: 1px;
+        background: var(--color-fg);
+        transform: scaleY(0);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    :global(.filter-btn.active + .filter-btn.active) {
+        border-radius: 0 20px 20px 0;
+        margin-left: calc(var(--fontSize) * -2);
+        padding-left: 1em;
+        border-left: none;
+    }
+    :global(.filter-btn.active + .filter-btn.active:before) {
+        transform: scaleY(0);
     }
 
     .accordion {
@@ -160,12 +361,31 @@
         height: 460px;
         margin-top: 1rem;
     }
+
+    .accordion + .accordion {
+        margin-top: -5rem;
+    }
+
+    .accordion-container {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 60vh;
+        max-width: 100vw;
+        gap: 50px;
+    }
+
+    .portfolio-container:has(.accordion + .accordion) {
+        height: auto;
+        overflow: visible;
+    }
+
     @media (max-width: 700px) {
         .portfolio-container {
             width: 100%;
             height: auto;
         }
-    
+
         .accordion {
             flex-direction: column;
             height: auto;
@@ -174,8 +394,5 @@
         .header-container h1 {
             font-size: 1.5rem;
         }
-    
     }
-
-    
 </style>

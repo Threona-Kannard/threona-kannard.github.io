@@ -58,7 +58,7 @@
                     {/each}
                 </div>
                 {#if e.hasProject}
-                <button class="project-link" onclick={() => window.open("/projects", "_self")} title="View Project">
+                <button class="project-link" onclick={() => window.open(`/projects?filter=${e.icon}`, "_self")} title="View Project">
                     <svg
                         class="project-nav"
                         fill="var(--color-fg)"
@@ -467,46 +467,5 @@
     .tag-jenkins {
         background-color: var(--tag-jenkins-bg);
         border-color: var(--tag-jenkins-border);
-    }
-
-    .scroll {
-        overflow: scroll;
-        overflow-x: hidden;
-        overflow-y: auto;
-
-        /* Width of the scroll bar */
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        /* Track (background) */
-        &::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
-
-        /* Thumb (the moving part) */
-        &::-webkit-scrollbar-thumb {
-            background-color: transparent;
-        }
-
-        &:hover {
-            &::-webkit-scrollbar-thumb {
-                background: var(--color-cream);
-                border-radius: 6px;
-            }
-            &::-webkit-scrollbar-track {
-                background-color: var(--color-border);
-                border: 2px solid var(--color-dark);
-                border-radius: 6px;
-            }
-
-            /* On hover */
-            &::-webkit-scrollbar-thumb:active {
-                background: var(--color-accent);
-            }
-            &::-webkit-scrollbar-track:active {
-                background: var(--color-blue-retro);
-            }
-        }
     }
 </style>

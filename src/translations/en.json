@@ -53,13 +53,22 @@
             "title": "My fav games"
         },
         "projects": {
-            "title": "Projects"
+            "title": "Projects",
+            "projects": [
+                {
+                    "image": "ryoko",
+                    "title": "Ryoko",
+                    "desc": "A 2D action platformer game with a cyberpunk theme, featuring fast-paced combat and challenging levels.",
+                    "tags": ["Cpp", "Lua", "Git", "Android", "TechArt"]
+                }
+            ]
         },
         "experience": {
             "title": "Battle Logs",
             "experiences": [
                 {
                     "icon": "sparx",
+                    "hasProject": true,
                     "style": "width: 50px; height: 20px;",
                     "title": "Technical Artist",
                     "company": "Sparx* - a Virtuos Studio",
@@ -83,6 +92,7 @@
                 },
                 {
                     "icon": "garena",
+                    "hasProject": false,
                     "style": "width: 60px; height: 50px; padding-left: 5px;",
                     "title": "Game Engineer",
                     "company": "Vietnam E-sport and Entertainment ,JSC (Garena)",
@@ -92,6 +102,7 @@
                 },
                 {
                     "icon": "gameloft",
+                    "hasProject": false,
                     "style": "width: 50px; height: 50px;",
                     "title": "Game Developer",
                     "company": "Gameloft Co .Ltd",
@@ -101,6 +112,7 @@
                 },
                 {
                     "icon": "gameloft",
+                    "hasProject": false,
                     "style": "width: 50px; height: 50px;",
                     "title": "C++ Programmer Intern",
                     "company": "Gameloft Co .Ltd",

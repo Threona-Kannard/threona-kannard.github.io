@@ -10,6 +10,7 @@
     --color-border: #55a867;
     --color-warning: #fa855a;
     --color-blue-retro: #3b52eb28;
+    --color-blue: #3b52eb;
     --color-cream: #ffedad;
 
     --padding-s: 0.5rem;
@@ -46,7 +47,7 @@
 
 body {
     min-height: 100vh;
-
+    overflow: hidden;
     color: var(--color-fg);
     background: linear-gradient(var(--color-bg), var(--color-blue-retro) 100%)
         fixed;
@@ -134,6 +135,47 @@ select {
 
     p {
         font-size: medium;
+    }
+}
+
+.scroll {
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* Width of the scroll bar */
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track (background) */
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    /* Thumb (the moving part) */
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-thumb {
+            background: var(--color-cream);
+            border-radius: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: var(--color-border);
+            border: 2px solid var(--color-dark);
+            border-radius: 6px;
+        }
+
+        /* On hover */
+        &::-webkit-scrollbar-thumb:active {
+            background: var(--color-accent);
+        }
+        &::-webkit-scrollbar-track:active {
+            background: var(--color-blue-retro);
+        }
     }
 }
 
