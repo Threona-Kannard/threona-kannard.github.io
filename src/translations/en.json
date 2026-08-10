@@ -37,20 +37,19 @@
                 "level": "Level",
                 "creed": "Writing the code of digital realms,<br/>Living the adventure of the real world."
             },
-            "biography": "Hello, I'm <span style=\"font-weight: bold; color: var(--color-cream)\">Threona</span>!<br/><br/>I am a <span style=\"font-weight: bold; color: var(--color-cream)\">Technical Artist, Game Developer, and Software Engineer</span> who loves standing at the intersection of logical engineering and digital art.<br/><br/>My passion lies in crafting games with groundbreaking experiences and compelling narratives, where every line of code and every frame serves to resonate with the player's emotions.<br/>Beyond making games, I have a deep-seated love for building custom software and tools that streamline the game dev and graphics pipelines, turning the most ambitious ideas into smooth, playable realities.<br/><br/>When I close my laptop, you'll find me diving into virtual worlds as an avid gamer, losing myself in good music, hitting the open road for a road trip, or battling it out on the basketball court with friends.",
-            "workspace": {
-                "model": "Model",
-                "chip": "Chipset",
-                "system": "System"
-            },
-            "story-01": "My Programming Story"
+            "biography": "Hello, I'm <span style=\"font-weight: bold; color: var(--color-cream)\">Threona</span>!<br/><br/>I am a <span style=\"font-weight: bold; color: var(--color-cream)\">Technical Artist, Game Developer, and Software Engineer</span> who loves standing at the intersection of logical engineering and digital art.<br/><br/>My passion lies in crafting games with groundbreaking experiences and compelling narratives, where every line of code and every frame serves to resonate with the player's emotions.<br/>Beyond making games, I have a deep-seated love for building custom software and tools that streamline the game dev and graphics pipelines, turning the most ambitious ideas into smooth, playable realities.<br/><br/>When I close my laptop, you'll find me diving into virtual worlds as an avid gamer, losing myself in good music, hitting the open road for a road trip, or battling it out on the basketball court with friends."
         },
         "music": {
             "page-title": "Music I like",
             "title": "My fav music"
         },
         "games": {
-            "title": "My fav games"
+            "title": "My fav games",
+            "retro-games": "Retro game list",
+            "games": "Game list"
+        },
+        "galleries": {
+            "title": "My galleries"
         },
         "projects": {
             "title": "Projects",

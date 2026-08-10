@@ -47,7 +47,12 @@
             "title": "Musica que adoro"
         },
         "games": {
-            "title": "Videojueguitos"
+            "title": "Videojueguitos",
+            "retro-games": "Danh sách game retro",
+            "galleries": "Bộ sưu tập của tôi"
+        },
+        "galleries": {
+            "title": "Bộ sưu tập của tôi"
         },
         "projects": {
             "title": "Proyectos"
