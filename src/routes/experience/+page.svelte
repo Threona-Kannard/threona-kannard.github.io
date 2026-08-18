@@ -1,7 +1,7 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import { _, json } from "svelte-i18n";
     import Separator from "$lib/components/Separator.svelte";
-    import Project from "$lib/components/projects/Project.svelte";
     import SparxImg from "/src/lib/assets/images/experiences/sparx.png?enhanced";
     import GarenaImg from "/src/lib/assets/images/experiences/garena.png?enhanced";
     import GameloftImg from "/src/lib/assets/images/experiences/gameloft.png?enhanced";
@@ -13,11 +13,14 @@
     <title>{$_("page.experience.title")}</title>
 </svelte:head>
 
-<h1 class="title">{$_("page.experience.title")}</h1>
+<div class="page-header">
+    <button class="back-button" onclick={() => goto("/")}>← Back to home</button>
+    <h1 class="title">{$_("page.experience.title")}</h1>
+</div>
 
 <Separator />
 
-<div class="project-list scroll">
+<div class="experience-list scroll">
     {#each exp as e}
         <div class="timeline-item">
             <div class="timeline-dot">
@@ -50,17 +53,17 @@
                 <div class="timeline-company">🏰 {e.company}</div>
                 <div class="timeline-date">📅 {e.date}</div>
                 <div class="timeline-desc">{@html $_(e.desc)}</div>
-                <div class="project-tags">
+                <div class="experience-tags">
                     {#each e.tags as tag}
-                        <dir class={`project-tag tag-${tag.toLowerCase()}`}>
+                        <dir class={`experience-tag tag-${tag.toLowerCase()}`}>
                             <p>{tag}</p>
                         </dir>
                     {/each}
                 </div>
                 {#if e.hasProject}
-                <button class="project-link" onclick={() => window.open(`/projects?filter=${e.icon}`, "_self")} title="View Project">
+                <button class="experience-link" onclick={() => window.open(`/projects?filter=${e.icon}`, "_self")} title="View Project">
                     <svg
-                        class="project-nav"
+                        class="experience-nav"
                         fill="var(--color-fg)"
                         width="2rem"
                         height="2rem"
@@ -81,7 +84,31 @@
 <style lang="scss">
     $barsize: 15px;
 
-    .project-link {
+    .page-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--padding-s);
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .back-button {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-fg);
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .back-button:hover {
+        background-color: var(--color-fg);
+        color: var(--color-bg);
+    }
+
+    .experience-link {
         position: absolute;
         right: 0;
         bottom: 0;
@@ -91,21 +118,21 @@
         cursor: pointer;
 
         &:hover {
-            .project-nav {
+            .experience-nav {
                 fill: var(--color-accent);
             }
         }
     }
 
-    .project-nav {
+    .experience-nav {
         height: 2rem;
         width: 2rem;
         top: 0;
-        animation: projectArrow 2s ease infinite;
+        animation: experienceArrow 2s ease infinite;
     }
 
     /* ANIMATIONS */
-    @keyframes projectArrow {
+    @keyframes experienceArrow {
         0%,
         100% {
             margin-right: 0rem;
@@ -230,13 +257,13 @@
             animation: bar 120s linear infinite;
         }
     }
-    .project-list {
+    .experience-list {
         display: flex;
         flex-direction: column;
         padding: var(--padding-m);
         gap: var(--padding-m);
         overflow-y: auto;
-        max-height: 60vh;
+        max-height: 70vh;
         max-width: 70vw;
         margin-left: 2vw;
     }
@@ -310,7 +337,6 @@
         box-shadow: 0 0 22px var(--color-cream);
     }
     .timeline-title {
-        font-family: "Orbitron", monospace;
         font-weight: bold;
         font-size: 28px;
         color: var(--color-cream);
@@ -373,7 +399,7 @@
         --tag-jenkins-border: #d24939;
     }
 
-    .project-tags {
+    .experience-tags {
         grid-area: 2 / 1 / 3 / 3;
 
         display: flex;
@@ -383,7 +409,7 @@
         margin-top: 15px;
     }
 
-    .project-tag {
+    .experience-tag {
         height: fit-content;
         padding: 0.1rem 0.5rem;
         background-color: var(--tag-bg);

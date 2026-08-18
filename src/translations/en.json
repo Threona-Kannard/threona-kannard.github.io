@@ -10,11 +10,11 @@
         },
         "home": {
             "greeting": [
-                "Welcome to my place! =w=",
-                "My favorite languages are C and Go!",
-                "I look like an NPC with this messages...",
-                "Nope I don't use wordpress, I hate PHP.",
-                "My first program was a discord bot written in Python... From my phone."
+                "Leveling up one line of code at a time. Welcome to my place! =w=",
+                "My favorite languages are C# and Kotlin",
+                "Come for the shaders and technical tools, stay for the low-level code rambles.",
+                "Where logic meets art, and PHP is strictly forbidden. Welcome to my tavern!",
+                "Where it all started: A console-based C++ Tic-Tac-Toe game. Simple grid, infinite nostalgia."
             ],
             "links": {
                 "about": "Character",
@@ -41,24 +41,396 @@
         },
         "music": {
             "page-title": "Music I like",
-            "title": "My fav music"
+            "title": "My playlist"
         },
         "games": {
-            "title": "My fav games",
+            "title": "My games library",
             "retro-games": "Retro game list",
             "games": "Game list"
         },
         "galleries": {
-            "title": "My galleries"
+            "title": "My galleries",
+            "items": [
+                {
+                    "title": "Vung Tau",
+                    "date": "10-2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_1.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_2.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_3.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_4.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_6.mp4",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_5.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_7.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_8.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_9.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_10.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_11.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_12.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_13.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_14.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_15.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_16.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_17.jpeg",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_18.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_19.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_20.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_21.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_22.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_23.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_24.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_25.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_26.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_27.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_28.JPG",
+                        "/src/lib/assets/images/galleries/vt-otc-25/vt10_2025_29.JPG"
+                    ],
+                    "variant": "featured"
+                },
+                {
+                    "title": "Around me 26",
+                    "date": "2026",
+                    "images": [
+                        "/src/lib/assets/images/galleries/life26/life_2026_002.JPG",
+                        "/src/lib/assets/images/galleries/life26/life_2026_003.JPG",
+                        "/src/lib/assets/images/galleries/life26/life_2026_005.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_006.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_007.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_008.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_009.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_010.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_011.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_012.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_013.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_014.jpeg"
+                    ],
+                    "variant": "wide"
+                },
+                {
+                    "title": "Bao Loc",
+                    "date": "06 2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_18.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_16.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_4.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_2.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_3.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_1.mp4",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_5.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_6.JPG",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_7.JPG",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_8.JPG",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_9.JPG",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_10.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_11.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_12.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_13.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_14.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_15.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_17.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_19.jpg",
+                        "/src/lib/assets/images/galleries/bl-25/bl_2025_20.jpeg"
+                    ],
+                    "variant": "tall"
+                },
+                {
+                    "title": "Phuoc Hai",
+                    "date": "07-2026",
+                    "images": [
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_1.jpg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_2.jpg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_3.jpg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_4.jpg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_5.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_6.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_7.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_8.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_9.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_10.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_11.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_12.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_13.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_14.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_15.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_16.jpeg",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_17.JPG",
+                        "/src/lib/assets/images/galleries/ph-26/ph_2026_18.JPG"
+                    ],
+                    "variant": "tall"
+                },
+                {
+                    "title": "Vung Tau",
+                    "date": "02 2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_1.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_2.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_3.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_4.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_5.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_6.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_7.jpg",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_8.webp",
+                        "/src/lib/assets/images/galleries/vt-2025/vt_2025_9.jpg"
+                    ],
+                    "variant": "tall"
+                },
+                {
+                    "title": "Da Lat",
+                    "date": "04 2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_1.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_2.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_3.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_4.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_5.mp4",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_6.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_7.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_8.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_9.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_10.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_11.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_12.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_13.JPG",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_14.JPG",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_15.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_16.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_17.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_18.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_19.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_20.jpeg",
+                        "/src/lib/assets/images/galleries/dl-25/dl_2025_21.jpeg"
+                    ],
+                    "variant": "featured"
+                },
+                {
+                    "title": "Saigon Build&Brew",
+                    "date": "05 2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_1.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_2.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_3.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_4.mp4",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_5.jpg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_6.jpg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_7.jpg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_8.jpg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_9.jpg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_10.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_11.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_12.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_13.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_14.jpeg",
+                        "/src/lib/assets/images/galleries/buildnbrew25/sgbnb_2025_15.jpeg"
+                    ],
+                    "variant": "tall"
+                },
+                {
+                    "title": "Sparx* Basketball",
+                    "date": "2023 - 2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/br-sparx/brsp_001.jpg",
+                        "/src/lib/assets/images/galleries/br-sparx/brsp_002.jpg",
+                        "/src/lib/assets/images/galleries/br-sparx/brsp_004.jpeg",
+                        "/src/lib/assets/images/galleries/br-sparx/brsp_005.jpeg"
+                    ],
+                    "variant": "tall"
+                },
+                
+                {
+                    "title": "Around me 25",
+                    "date": "2025",
+                    "images": [
+                        "/src/lib/assets/images/galleries/life25/life_2025_001.JPG",
+                        "/src/lib/assets/images/galleries/life25/life_2025_003.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_004.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_005.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_006.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_007.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_008.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_009.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_010.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_011.jpeg",
+                        "/src/lib/assets/images/galleries/life25/life_2025_012.jpeg"
+                    ],
+                    "variant": "tall"
+                },
+                
+                {
+                    "title": "Around me 24",
+                    "date": "2024",
+                    "images": [
+                        "/src/lib/assets/images/galleries/life26/life_2026_002.JPG",
+                        "/src/lib/assets/images/galleries/life26/life_2026_003.JPG",
+                        "/src/lib/assets/images/galleries/life26/life_2026_005.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_006.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_007.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_008.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_009.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_010.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_011.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_012.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_013.jpeg",
+                        "/src/lib/assets/images/galleries/life26/life_2026_014.jpeg"
+                    ],
+                    "variant": "wide"
+                }
+            ],
+            "button": {
+                "backtotop": "Back to top",
+                "moreImages": "More here"
+            }
         },
         "projects": {
             "title": "Projects",
             "projects": [
                 {
-                    "image": "ryoko",
-                    "title": "Ryoko",
-                    "desc": "A 2D action platformer game with a cyberpunk theme, featuring fast-paced combat and challenging levels.",
-                    "tags": ["Cpp", "Lua", "Git", "Android", "TechArt"]
+                    "image": "LOL",
+                    "title": "League of Legends",
+                    "desc": "Technical Artist (League of Legends): Maintained and optimized the end-to-end skin creation pipeline, building custom workflow tools and resolving technical integration bottlenecks for artists.",
+                    "tags": [
+                        "Python",
+                        "Lua",
+                        "Perforce",
+                        "Maya",
+                        "VFX - Particle System",
+                        "Shader - Material",
+                        "3D Modeling Tools",
+                        "Rigging Tools",
+                        "Animation",
+                        "Sparx*",
+                        "TechArt"
+                    ],
+                    "images": [
+                        "/src/lib/assets/images/projects/LOL/Winterwonder_smolder.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/demacia_nautilus.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Aegis_frame_ornn.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/firecracker_yuumi.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Firecracker_caitlyn.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Warhounds_naafiri.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Surprise_vex.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Rain_Frogs_ivern.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Sinful_shore_brand.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Sinful_shore_leblanc.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/Victorious_Rengar.png?enhanced",
+                        "/src/lib/assets/images/projects/LOL/magma_chamber_veigar.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/magma_chamber_jax.jpg?enhanced"
+                    ],
+                    "imageTitles": {
+                        "0": {
+                            "title": "Reinddeer Smolder",
+                            "link": "https://www.youtube.com/watch?v=Hyy1vBzeb1U"
+                        },
+                        "1": {
+                            "title": "Petricite Nautilus",
+                            "link": "https://www.youtube.com/watch?v=fB2D8O3nSGw"
+                        },
+                        "2": {
+                            "title": "Aegis Frame Ornn",
+                            "link": "https://www.youtube.com/watch?v=6H1AQAzqt58"
+                        },
+                        "3": {
+                            "title": "Firecracker Yuumi",
+                            "link": "https://www.youtube.com/watch?v=zxP3zaCrvt0"
+                        },
+                        "4": {
+                            "title": "Firecracker Caitlyn",
+                            "link": "https://www.youtube.com/watch?v=td3_3DSjBOY"
+                        },
+                        "5": {
+                            "title": "Warhoundd Naafiri",
+                            "link": "https://www.youtube.com/watch?v=Ebyv2784gN8"
+                        },
+                        "6": {
+                            "title": "Surprise Party Vex",
+                            "link": "https://www.youtube.com/watch?v=LwC_f8jGxQw"
+                        },
+                        "7": {
+                            "title": "Rain Shepherd Ivern",
+                            "link": "https://www.youtube.com/watch?v=0YklpbzvBWI"
+                        },
+                        "8": {
+                            "title": "Sinful Shore Brand",
+                            "link": "https://www.youtube.com/watch?v=mGOQviP-wm8"
+                        },
+                        "9": {
+                            "title": "Prestige Sinful Shore Leblanc",
+                            "link": "https://www.youtube.com/watch?v=5lDSfzCjDaw"
+                        },
+                        "10": {
+                            "title": "Victorious Rengar",
+                            "link": "https://www.youtube.com/watch?v=RCsRmVNytgM"
+                        },
+                        "11": {
+                            "title": "Prestige Magma Chamber Veigar",
+                            "link": "https://www.youtube.com/watch?v=WcyNfejGBF0"
+                        },
+                        "12": {
+                            "title": "Prestige Magma Chamber Jax",
+                            "link": "https://www.youtube.com/watch?v=XVtZz5h-eLw"
+                        }
+                    },
+                    "externalUrl": {
+                        "title": "Airtable",
+                        "url": "https://airtable.com/appiyHdznCnPhrDnh/shrVuRNpBe7GFiZYI/tblw76tmVRei4QOad"
+                    }
+                },
+                {
+                    "image": "HALO",
+                    "title": "HALO: Campaign Evolved",
+                    "desc": "Technical Artist (HALO Project): Supported AAA asset pipelines, resolved technical integration bottlenecks, and enforced performance and memory budgets across art and engineering teams.",
+                    "tags": [
+                        "Python",
+                        "Lua",
+                        "Perforce",
+                        "Maya",
+                        "Unreal Engine",
+                        "3D Modeling Tools",
+                        "Rigging Tools",
+                        "Animation",
+                        "Sparx*",
+                        "TechArt"
+                    ],
+                    "images": [
+                        "/src/lib/assets/images/projects/HALO/HALO.jpg?enhanced",
+                        "/src/lib/assets/images/projects/HALO/Halo_credit.jpg?enhanced"
+                    ],
+                    "imageTitles": {
+                        "0": {
+                            "title": "HALO: Campaign Evolved"
+                        },
+                        "1": {
+                            "title": "Game Credits",
+                            "link": "https://youtu.be/qaj4dl_6nLI?t=960"
+                        }
+                    }
+                },
+                {
+                    "image": "NBA2k",
+                    "title": "NBA 2k (24 - 25)",
+                    "desc": "Technical Artist (NBA 2k): Supported AAA asset pipelines, resolved technical integration bottlenecks, and enforced performance and memory budgets across art and engineering teams.",
+                    "tags": [
+                        "Python",
+                        "Lua",
+                        "Perforce",
+                        "Maya",
+                        "3D Modeling Tools",
+                        "Sparx*",
+                        "TechArt"
+                    ],
+                    "images": [
+                        "/src/lib/assets/images/projects/NBA/NBA2k24.png?enhanced",
+                        "/src/lib/assets/images/projects/NBA/NBA2k25.png?enhanced"
+                    ],
+                    "imageTitles": {
+                        "0": {
+                            "title": "NBA 2k24 Credits",
+                            "link": "https://youtu.be/NznpEQq-3qQ?t=207"
+                        },
+                        "1": {
+                            "title": "NBA 2k5 Credits",
+                            "link": "https://youtu.be/m7dtOwXBCBg?t=86"
+                        }
+                    }
                 }
             ]
         },
@@ -97,7 +469,13 @@
                     "company": "Vietnam E-sport and Entertainment ,JSC (Garena)",
                     "date": "June 2022 — May 2023",
                     "desc": "Implement and publish games on a sandbox platform. Using Lua and visual script to implement the feature of the game:<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ranking and leaderboard features for users</li><li>Room matching feature</li><li>Using round-robin algorithms to make the match matching schedule</li><li>Manage user data</li></ul>",
-                    "tags": ["Scratch", "Lua", "Javascript", "Git", "Android"]
+                    "tags": [
+                        "Scratch",
+                        "Lua",
+                        "Javascript",
+                        "Git",
+                        "Android"
+                    ]
                 },
                 {
                     "icon": "gameloft",
@@ -107,7 +485,12 @@
                     "company": "Gameloft Co .Ltd",
                     "date": "June 2021 — June 2022",
                     "desc": "Create a new game with the idea from the game designers.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ported a C++ UWP game codebase across multi-platform targets, including Xbox, PlayStation, and Android.</li><li>Maintained and optimized In-App Purchase (IAP) integration across multiple platforms, ensuring reliable transaction processing and seamless user flow.</li><li>Prepared, configured, and deployed cross-platform game builds to storefronts such as Steam and Epic Games Store, ensuring compliance with platform release guidelines.</li><li>Conducted rigorous functional and regression testing across core APIs and game builds to catch critical bugs early and ensure seamless user experiences.</li><li>Automated project setup by writing custom Lua scripts to resolve dependencies, compile standalone source libraries, and link core modules into production builds.</li><li>Leveraged OpenGL, DirectX, and Vulkan to develop real-time graphic effects and graphics rendering pipelines.</li></ul>",
-                    "tags": ["Cpp", "Lua", "Git", "Android"]
+                    "tags": [
+                        "Cpp",
+                        "Lua",
+                        "Git",
+                        "Android"
+                    ]
                 },
                 {
                     "icon": "gameloft",
@@ -117,7 +500,14 @@
                     "company": "Gameloft Co .Ltd",
                     "date": "Jan 2021 — June 2021",
                     "desc": "Create a core SDK that provides the necessary APIs for other developers to use to write mobile games. Develop project concepts and maintain optimal workflow.<br/> Work with senior developer to manage large, complex design of project structure.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li> Complete detailed programming and development tasks for APIs.</li><li>Carry out quality assurance tests to discover errors and optimize usability.</li><li>Make an automation operation process by using Jenkins.</li><li>Setup build tool for game using Batch/Bash and Lua script.</li><li>Using Lua to setup the project game from discrete source code and build the libs then connect to the project.</li></ul>",
-                    "tags": ["Cpp", "Lua", "Java", "Kotlin", "Git", "Android"]
+                    "tags": [
+                        "Cpp",
+                        "Lua",
+                        "Java",
+                        "Kotlin",
+                        "Git",
+                        "Android"
+                    ]
                 }
             ]
         },

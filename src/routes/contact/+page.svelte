@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import { _ } from "svelte-i18n";
     import Separator from "$lib/components/Separator.svelte";
     import Social from "$lib/components/contact/Social.svelte";
@@ -9,7 +10,10 @@
     <title>{$_("page.contact.title")}</title>
 </svelte:head>
 
-<h1 class="title">{$_("page.contact.title")}</h1>
+<div class="page-header">
+    <button class="back-button" onclick={() => goto("/")}>← Back to home</button>
+    <h1 class="title">{$_("page.contact.title")}</h1>
+</div>
 
 <Separator />
 
@@ -47,6 +51,30 @@
 </div>
 
 <style>
+    .page-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--padding-s);
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .back-button {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-fg);
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .back-button:hover {
+        background-color: var(--color-fg);
+        color: var(--color-bg);
+    }
+
     .container {
         display: flex;
         align-items: center;

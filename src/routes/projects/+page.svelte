@@ -1,20 +1,33 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import { _, json } from "svelte-i18n";
     import { onMount } from "svelte";
     import Separator from "$lib/components/Separator.svelte";
     import Project from "$lib/components/projects/Project.svelte";
     // Images
-    import Rubiu5Img from "$lib/assets/images/projects/rubiu5.webp?enhanced";
-    import ArchanImg from "$lib/assets/images/projects/archan.webp?enhanced";
-    import StarMCImg from "$lib/assets/images/projects/starmc.webp?enhanced";
-    import DnDAbenyuImg from "$lib/assets/images/projects/dnd_abenyu.webp?enhanced";
-    import RyokoImg from "$lib/assets/images/projects/ryoko.webp?enhanced";
+    import LOLImg from "$lib/assets/images/projects/LOL/LOL.jpg?enhanced";
+    import HaloImg from "$lib/assets/images/projects/HALO/HALO.jpg?enhanced";
+    import NBAImg from "$lib/assets/images/projects/NBA/NBA.jpg?enhanced";
+
+    type SlideMeta = {
+        title?: string;
+        link?: string;
+        youtubeUrl?: string;
+    };
+
+    type ExternalProjectMeta = {
+        title?: string;
+        url?: string;
+    };
 
     type ProjectData = {
         title: string;
         desc: string;
         image: string;
         tags: string[];
+        images?: string[];
+        imageTitles?: Record<number, SlideMeta> | Record<string, SlideMeta> | string[];
+        externalUrl?: string | ExternalProjectMeta;
     };
 
     let showSparxOnly = $state(false);
@@ -26,27 +39,33 @@
     const projectData = ($json("page.projects.projects") ??
         []) as ProjectData[];
 
-    const projects: any = projectData.map((project) => ({
-        title: project.title,
-        desc: project.desc,
-        image: (() => {
-            switch (project.image) {
-                case "rubiu5":
-                    return Rubiu5Img;
-                case "archan":
-                    return ArchanImg;
-                case "starMC":
-                    return StarMCImg;
-                case "dnd_abenyu":
-                    return DnDAbenyuImg;
-                case "ryoko":
-                    return RyokoImg;
-                default:
-                    return "";
-            }
-        })(),
-        tags: project.tags,
-    }));
+    const projects: any = projectData.map((project) => {
+        const externalLink =
+            typeof project.externalUrl === "string"
+                ? { title: "External project", url: project.externalUrl }
+                : project.externalUrl ?? { title: "External project", url: "" };
+
+        return {
+            title: project.title,
+            desc: project.desc,
+            image: (() => {
+                switch (project.image) {
+                    case "LOL":
+                        return LOLImg;
+                    case "HALO":
+                        return HaloImg;
+                    case "NBA2k":
+                        return NBAImg;
+                    default:
+                        return "";
+                }
+            })(),
+            tags: project.tags,
+            images: project.images ?? [],
+            imageTitles: project.imageTitles ?? {},
+            externalUrl: externalLink,
+        };
+    });
 
     const filterProjects = $derived.by(() => {
         const enabledFilters = [
@@ -198,9 +217,13 @@
     <title>{$_("page.projects.title")}</title>
 </svelte:head>
 
-<h1 class="title">{$_("page.projects.title")}</h1>
+<div class="page-header">
+    <button class="back-button" onclick={() => goto("/")}>← Back to home</button
+    >
+    <h1 class="title">{$_("page.projects.title")}</h1>
+</div>
 
-<Separator margin={false}/>
+<Separator margin={false} />
 
 <div class="portfolio-container">
     <div class="header-container">
@@ -223,7 +246,7 @@
             >
         </div>
     </div>
-    <div class="accordion-container scroll">
+    <div class="accordion-container {projectData.length > 7 ? "scroll" : "no-scroll"}">
         {#each projectAccordions as accordionProjects}
             <div class="accordion">
                 {#each accordionProjects as project}
@@ -232,6 +255,9 @@
                         description={project.desc}
                         img={project.image}
                         tags={project.tags}
+                        images={project.images}
+                        imageTitles={project.imageTitles}
+                        externalUrl={project.externalUrl}
                     ></Project>
                 {/each}
             </div>
@@ -262,6 +288,14 @@
                 width: 150%;
             }
         }
+    }
+
+    .page-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--padding-s);
+        align-items: center;
+        justify-content: space-between;
     }
 
     .header-container {
@@ -373,11 +407,33 @@
         max-height: 60vh;
         max-width: 100vw;
         gap: 50px;
+
+        &.no-scroll {
+            overflow: hidden;
+        }
     }
 
     .portfolio-container:has(.accordion + .accordion) {
         height: auto;
         overflow: visible;
+    }
+
+    .back-button {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-fg);
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .back-button:hover {
+        background-color: var(--color-fg);
+        color: var(--color-bg);
     }
 
     @media (max-width: 700px) {

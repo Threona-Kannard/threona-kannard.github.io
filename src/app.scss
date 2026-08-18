@@ -47,7 +47,7 @@
 
 body {
     min-height: 100vh;
-    // overflow: hidden;
+    overflow: hidden;
     color: var(--color-fg);
     background: linear-gradient(var(--color-bg), var(--color-blue-retro) 100%)
         fixed;
@@ -117,6 +117,7 @@ select {
 @media screen and (max-width: 980px) {
     :root {
         --padding-main-x: 4rem;
+        overflow: auto;
     }
 }
 
@@ -124,6 +125,7 @@ select {
     :root {
         --padding-main-x: 2rem;
         --padding-main-y: 2rem;
+        overflow: auto;
     }
 
     .desktop-only {

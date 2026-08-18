@@ -30,6 +30,7 @@
         height: 7rem;
         display: flex;
         gap: var(--padding-s);
+        min-height: 5rem;
         background-color: var(--color-border);
         padding: var(--padding-s);
         overflow: hidden;

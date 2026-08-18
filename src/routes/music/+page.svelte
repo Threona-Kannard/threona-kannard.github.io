@@ -3,6 +3,7 @@
     import Separator from "$lib/components/Separator.svelte";
     import Playlist from "$lib/components/music/Playlist.svelte";
     import "$lib/assets/css/music.css";
+    import { goto } from "$app/navigation";
 
     let { data } = $props();
 </script>
@@ -11,7 +12,10 @@
     <title>{$_("page.music.page-title")}</title>
 </svelte:head>
 
-<h1 class="title">{$_("page.music.title")}</h1>
+<div class="page-header">
+    <button class="back-button" onclick={() => goto("/about?select=apps")}>← Back to inventory</button>
+    <h1 class="title">{$_("page.music.title")}</h1>
+</div>
 
 <Separator />
 
@@ -98,13 +102,12 @@
     </div>
 
     <div class="window-content">
-        <div class="playlist-container">
+        <div class="playlist-container scroll">
             <Playlist name="kimu" playlistData={data.playlists.kimuPlaylist} />
             <Playlist
                 name="lpr-309"
                 playlistData={data.playlists.lprPlaylist}
             />
-            <Playlist name="mchn" playlistData={data.playlists.mchnPlaylist} />
         </div>
     </div>
 </div>
@@ -113,6 +116,32 @@
     .playlist-container {
         display: flex;
         flex-direction: column;
+        max-height: 60vh;
         gap: var(--padding-m);
+        padding: 5px;
+    }
+
+    .page-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--padding-s);
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .back-button {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-fg);
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .back-button:hover {
+        background-color: var(--color-fg);
+        color: var(--color-bg);
     }
 </style>
