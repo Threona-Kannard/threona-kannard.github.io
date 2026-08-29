@@ -1,7 +1,8 @@
 import type { PlaylistData, Track } from "$lib/types/spotify.dto";
+import type { PageLoad } from "./$types";
 import { error } from "@sveltejs/kit";
 
-export async function load({ params }) {
+export const load: PageLoad = async ({ params }) => {
     const playlistData = (await import(
         `$lib/data/json/${params.name}-playlist-info.json`
     ).catch(() => {
@@ -17,4 +18,4 @@ export async function load({ params }) {
         playlistData,
         tracks: playlistTracks.tracks,
     };
-}
+};

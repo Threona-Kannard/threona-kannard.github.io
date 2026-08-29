@@ -7,6 +7,7 @@
 
 <div class="about-character-view">
     <div class="about-character-img">
+        <!-- TODO: Change this image -->
         <img src={CharacterImg} alt="Character walking" />
     </div>
 

@@ -13,7 +13,9 @@
 </svelte:head>
 
 <div class="page-header">
-    <button class="back-button" onclick={() => goto("/about?select=apps")}>← Back to inventory</button>
+    <button class="back-button" onclick={() => goto("/about?select=apps")}
+        >← Back to inventory</button
+    >
     <h1 class="title">{$_("page.music.title")}</h1>
 </div>
 
@@ -21,7 +23,7 @@
 
 <div class="playlist-info">
     <h3>Playlists: 3</h3>
-    <a href="https://open.spotify.com/user/7ffa70unfgny74s5yj5f6um59">
+    <a href="https://open.spotify.com/user/31ij3blfts6o6iii2clb3cswrqqi">
         <h3>Profile</h3>
     </a>
 </div>
@@ -103,10 +105,25 @@
 
     <div class="window-content">
         <div class="playlist-container scroll">
-            <Playlist name="kimu" playlistData={data.playlists.kimuPlaylist} />
             <Playlist
-                name="lpr-309"
-                playlistData={data.playlists.lprPlaylist}
+                name="childhood"
+                playlistData={data.playlists.childhoodPlaylist}
+            />
+            <Playlist
+                name="coast-to-coast"
+                playlistData={data.playlists.ctcPlaylist}
+            />
+            <Playlist
+                name="hero-journey"
+                playlistData={data.playlists.hjPlaylist}
+            />
+            <Playlist
+                name="moonlight"
+                playlistData={data.playlists.mlPlaylist}
+            />
+            <Playlist
+                name="radio-gac-xep"
+                playlistData={data.playlists.rgxPlaylist}
             />
         </div>
     </div>
@@ -137,7 +154,9 @@
         padding: 0.75rem 1rem;
         border-radius: var(--border-radius);
         cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
     }
 
     .back-button:hover {

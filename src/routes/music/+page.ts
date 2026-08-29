@@ -4,27 +4,39 @@ import { error } from "@sveltejs/kit";
 const ERROR_MSG = "That playlist is not playing now...";
 
 export async function load() {
-    const kimuPlaylist = (await import(
-        `$lib/data/json/kimu-playlist-info.json`
+    const childhoodPlaylist = (await import(
+        `$lib/data/json/childhood-playlist-info.json`
     ).catch(() => {
         error(404, ERROR_MSG);
     })) as unknown as PlaylistData;
-    const lprPlaylist = (await import(
-        `$lib/data/json/lpr-309-playlist-info.json`
+    const ctcPlaylist = (await import(
+        `$lib/data/json/coast-to-coast-playlist-info.json`
     ).catch(() => {
         error(404, ERROR_MSG);
     })) as unknown as PlaylistData;
-    const mchnPlaylist = (await import(
-        `$lib/data/json/mchn-playlist-info.json`
+    const hjPlaylist = (await import(
+        `$lib/data/json/hero-journey-playlist-info.json`
+    ).catch(() => {
+        error(404, ERROR_MSG);
+    })) as unknown as PlaylistData;
+    const mlPlaylist = (await import(
+        `$lib/data/json/moonlight-playlist-info.json`
+    ).catch(() => {
+        error(404, ERROR_MSG);
+    })) as unknown as PlaylistData;
+    const rgxPlaylist = (await import(
+        `$lib/data/json/radio-gac-xep-playlist-info.json`
     ).catch(() => {
         error(404, ERROR_MSG);
     })) as unknown as PlaylistData;
 
     return {
         playlists: {
-            kimuPlaylist,
-            lprPlaylist,
-            mchnPlaylist,
+            childhoodPlaylist,
+            ctcPlaylist,
+            hjPlaylist,
+            mlPlaylist,
+            rgxPlaylist
         },
     };
 }
