@@ -33,17 +33,17 @@
         setMenuAnimationState(isOpening);
     }
 
-    function OnOptionItemClicked(selectedLocale: string) {
-        userLocale = selectedLocale;
-        updateLocale();
+    // function OnOptionItemClicked(selectedLocale: string) {
+    //     userLocale = selectedLocale;
+    //     updateLocale();
 
-        jQuery(".placeholder").text(selectedLocale).css("opacity", "1");
-        jQuery(`.list__ul button[data-locale='${selectedLocale}']`)
-            .closest("li")
-            .prependTo(".list__ul");
-        jQuery(".list__ul").hide();
-        setMenuAnimationState(false);
-    }
+    //     jQuery(".placeholder").text(selectedLocale).css("opacity", "1");
+    //     jQuery(`.list__ul button[data-locale='${selectedLocale}']`)
+    //         .closest("li")
+    //         .prependTo(".list__ul");
+    //     jQuery(".list__ul").hide();
+    //     setMenuAnimationState(false);
+    // }
 
     // jQuery("select").on("change", function (e) {
     //     // Set text on placeholder hidden element
@@ -53,40 +53,36 @@
     //     jQuery(this).animate({ width: jQuery(".placeholder").width() + "px" });
     // });
 
-    let userLocale = $state(getLocale());
+    // let userLocale = $state(getLocale());
 
     onMount(() => {
-        const savedLocale = localStorage.getItem("locale");
-        if (
-            savedLocale === "en" ||
-            savedLocale === "vi" ||
-            savedLocale === "jp"
-        ) {
-            locale.set(savedLocale);
-            userLocale = savedLocale;
-        }
+        // const savedLocale = localStorage.getItem("locale");
+        // if (
+        //     savedLocale === "en" ||
+        //     savedLocale === "vi" ||
+        //     savedLocale === "jp"
+        // ) {
+        //     locale.set(savedLocale);
+        //     userLocale = savedLocale;
+        // }
     });
 
-    function getLocale(): string {
-        const currentLocale = get(locale)?.substring(0, 2);
-        if (!(
-            currentLocale === "en" ||
-            currentLocale === "vi" ||
-            currentLocale === "jp"
-        )) {
-            locale.set("en");
-            return "en";
-        }
+    // function getLocale(): string {
+    //     const currentLocale = get(locale)?.substring(0, 2);
+    //     if (!(currentLocale === "en")) {
+    //         locale.set("en");
+    //         return "en";
+    //     }
 
-        return currentLocale;
-    }
+    //     return currentLocale;
+    // }
 
-    function updateLocale() {
-        const strippedLocale = userLocale.substring(0, 2);
+    // function updateLocale() {
+    //     const strippedLocale = userLocale.substring(0, 2);
 
-        localStorage.setItem("locale", strippedLocale);
-        locale.set(strippedLocale);
-    }
+    //     localStorage.setItem("locale", strippedLocale);
+    //     locale.set(strippedLocale);
+    // }
 </script>
 
 <header>
@@ -163,7 +159,7 @@
             </svg>
         </a>
 
-        <div class="list">
+        <!-- <div class="list">
             <button class="placeholder" onclick={OnTextClicked}
                 >{userLocale}</button
             >
@@ -187,7 +183,7 @@
                     >
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </header>
 <div class="spacer"></div>
@@ -199,51 +195,51 @@
         --spacing: clamp(1.5rem, 2vw, 5rem);
     }
 
-    .list {
-        display: inline-block;
-        position: relative;
-        ul {
-            text-align: left;
-            position: absolute;
-            padding: 0;
-            top: 0;
-            left: 0;
-            display: none;
-        }
-        li {
-            display: block;
-            position: relative;
-            width: 30px;
-            border-bottom: 4px solid;
-            text-align: center;
-            font-size: 1.2rem;
-            background-color: #7e7d7d3b;
-            border-radius: 15%;
-            color: var(--color-border);
-            cursor: pointer;
+    // .list {
+    //     display: inline-block;
+    //     position: relative;
+    //     ul {
+    //         text-align: left;
+    //         position: absolute;
+    //         padding: 0;
+    //         top: 0;
+    //         left: 0;
+    //         display: none;
+    //     }
+    //     li {
+    //         display: block;
+    //         position: relative;
+    //         width: 30px;
+    //         border-bottom: 4px solid;
+    //         text-align: center;
+    //         font-size: 1.2rem;
+    //         background-color: #7e7d7d3b;
+    //         border-radius: 15%;
+    //         color: var(--color-border);
+    //         cursor: pointer;
 
-            &:global(.toggled) {
-                @for $m from 1 through 3 {
-                    &:nth-child(#{$m + 1}) {
-                        animation: fadeInLeft 0s ease-out both;
-                        transition-delay:
-                            #{0.05 * $m}s,
-                            0s;
-                        border-left: 4px solid;
-                        margin-left: #{1 * $m}rem;
-                        margin-top: 0.2rem;
-                    }
-                }
-            }
+    //         &:global(.toggled) {
+    //             @for $m from 1 through 3 {
+    //                 &:nth-child(#{$m + 1}) {
+    //                     animation: fadeInLeft 0s ease-out both;
+    //                     transition-delay:
+    //                         #{0.05 * $m}s,
+    //                         0s;
+    //                     border-left: 4px solid;
+    //                     margin-left: #{1 * $m}rem;
+    //                     margin-top: 0.2rem;
+    //                 }
+    //             }
+    //         }
 
-            &:hover {
-                color: var(--color-accent);
-                button {
-                    color: var(--color-accent);
-                }
-            }
-        }
-    }
+    //         &:hover {
+    //             color: var(--color-accent);
+    //             button {
+    //                 color: var(--color-accent);
+    //             }
+    //         }
+    //     }
+    // }
 
     @keyframes fadeInLeft {
         0% {
@@ -256,17 +252,17 @@
         }
     }
 
-    .placeholder {
-        //visibility: hidden;
-        //position: fixed;
-        border-bottom: 2px solid;
-        font-size: 1.2rem;
-        color: var(--color-border);
-        cursor: pointer;
-        &:hover {
-            color: var(--color-accent);
-        }
-    }
+    // .placeholder {
+    //     //visibility: hidden;
+    //     //position: fixed;
+    //     border-bottom: 2px solid;
+    //     font-size: 1.2rem;
+    //     color: var(--color-border);
+    //     cursor: pointer;
+    //     &:hover {
+    //         color: var(--color-accent);
+    //     }
+    // }
 
     header {
         position: fixed;
