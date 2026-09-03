@@ -194,10 +194,6 @@ select {
     font-family: "vergilia";
     src: url("$lib/assets/fonts/vergilia/vergilia.ttf");
 }
-@font-face {
-    font-family: "vt323";
-    src: url("$lib/assets/fonts/vt323/VT323-Regular.ttf");
-}
 
 svg:not(:root) {
     overflow-clip-margin: content-box;
