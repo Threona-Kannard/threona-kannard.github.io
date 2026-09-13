@@ -1,0 +1,1 @@
+const t=[{url:"https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8486f52cc7e1de5d794b7cc1e0"}],o={spotify:"https://open.spotify.com/playlist/33PIrYnFcJXko0sTmRm8RK"},n="月光",s="Threona Kannard",c={images:t,external_urls:o,name:n,description:s};export{c as default,s as description,o as external_urls,t as images,n as name};
