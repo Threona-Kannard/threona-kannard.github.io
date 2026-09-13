@@ -7,6 +7,7 @@
     // Images
     import FrameImg from "$lib/assets/images/frame.webp";
     import GuraSpinImg from "$lib/assets/images/gawr-spin.gif";
+    import PolkaPattern from "$lib/assets/svg/polka-pattern.svg";
 
     let { children } = $props();
     const loadingMessage = $derived(
@@ -18,7 +19,7 @@
 
 <div id="app">
     <img src={FrameImg} class="frame" alt="" />
-    <div class="polka"></div>
+    <div class="polka" style:background-image="url({PolkaPattern})"></div>
     <div class="crt"></div>
 
     {#if $isLoading || !$locale}
@@ -42,7 +43,6 @@
         left: 0;
         height: 100dvh;
         width: 100dvw;
-
         pointer-events: none;
         transition: 0s;
         z-index: 999999999;
@@ -57,7 +57,6 @@
 
         pointer-events: none;
         opacity: 0.3;
-        background-image: url("/src/lib/assets/svg/polka-pattern.svg");
         mask-image: -moz-linear-gradient(
             180deg,
             transparent 60%,
