@@ -11,7 +11,8 @@
 </svelte:head>
 
 <div class="page-header">
-    <button class="back-button" onclick={() => goto("/")}>← Back to home</button>
+    <button class="back-button" onclick={() => goto("/")}>← Back to home</button
+    >
     <h1 class="title">{$_("page.contact.title")}</h1>
 </div>
 
@@ -40,7 +41,7 @@
         socialApp={"X"}
         name={"X"}
         linkText={"Threona Huynh 👾"}
-        link={"https://x.com/ThreonaHuynh"}
+        link={"https://x.com/threona__huynh"}
     />
     <Social
         socialApp={"Discord"}
@@ -67,7 +68,9 @@
         padding: 0.75rem 1rem;
         border-radius: var(--border-radius);
         cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
     }
 
     .back-button:hover {

@@ -24,6 +24,7 @@
                 "donate": "Buy me a coffee",
                 "patreon": "Patreon",
                 "artstation": "Artstation",
+                "fab": "Fab.com",
                 "youtube": "Youtube"
             }
         },
@@ -234,7 +235,7 @@
                     ],
                     "variant": "tall"
                 },
-                
+
                 {
                     "title": "Around me 25",
                     "date": "2025",
@@ -253,7 +254,7 @@
                     ],
                     "variant": "tall"
                 },
-                
+
                 {
                     "title": "Around me 24",
                     "date": "2024",
@@ -468,13 +469,7 @@
                     "company": "Vietnam E-sport and Entertainment ,JSC (Garena)",
                     "date": "June 2022 — May 2023",
                     "desc": "Implement and publish games on a sandbox platform. Using Lua and visual script to implement the feature of the game:<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ranking and leaderboard features for users</li><li>Room matching feature</li><li>Using round-robin algorithms to make the match matching schedule</li><li>Manage user data</li></ul>",
-                    "tags": [
-                        "Scratch",
-                        "Lua",
-                        "Javascript",
-                        "Git",
-                        "Android"
-                    ]
+                    "tags": ["Scratch", "Lua", "Javascript", "Git", "Android"]
                 },
                 {
                     "icon": "gameloft",
@@ -484,12 +479,7 @@
                     "company": "Gameloft Co .Ltd",
                     "date": "June 2021 — June 2022",
                     "desc": "Create a new game with the idea from the game designers.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li>Ported a C++ UWP game codebase across multi-platform targets, including Xbox, PlayStation, and Android.</li><li>Maintained and optimized In-App Purchase (IAP) integration across multiple platforms, ensuring reliable transaction processing and seamless user flow.</li><li>Prepared, configured, and deployed cross-platform game builds to storefronts such as Steam and Epic Games Store, ensuring compliance with platform release guidelines.</li><li>Conducted rigorous functional and regression testing across core APIs and game builds to catch critical bugs early and ensure seamless user experiences.</li><li>Automated project setup by writing custom Lua scripts to resolve dependencies, compile standalone source libraries, and link core modules into production builds.</li><li>Leveraged OpenGL, DirectX, and Vulkan to develop real-time graphic effects and graphics rendering pipelines.</li></ul>",
-                    "tags": [
-                        "Cpp",
-                        "Lua",
-                        "Git",
-                        "Android"
-                    ]
+                    "tags": ["Cpp", "Lua", "Git", "Android"]
                 },
                 {
                     "icon": "gameloft",
@@ -499,14 +489,7 @@
                     "company": "Gameloft Co .Ltd",
                     "date": "Jan 2021 — June 2021",
                     "desc": "Create a core SDK that provides the necessary APIs for other developers to use to write mobile games. Develop project concepts and maintain optimal workflow.<br/> Work with senior developer to manage large, complex design of project structure.<br/><ul style=\"list-style-type: circle; padding-left: 2em;\"><li> Complete detailed programming and development tasks for APIs.</li><li>Carry out quality assurance tests to discover errors and optimize usability.</li><li>Make an automation operation process by using Jenkins.</li><li>Setup build tool for game using Batch/Bash and Lua script.</li><li>Using Lua to setup the project game from discrete source code and build the libs then connect to the project.</li></ul>",
-                    "tags": [
-                        "Cpp",
-                        "Lua",
-                        "Java",
-                        "Kotlin",
-                        "Git",
-                        "Android"
-                    ]
+                    "tags": ["Cpp", "Lua", "Java", "Kotlin", "Git", "Android"]
                 }
             ]
         },
