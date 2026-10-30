@@ -313,7 +313,11 @@
                         "/src/lib/assets/images/projects/LOL/Sinful_shore_leblanc.png?enhanced",
                         "/src/lib/assets/images/projects/LOL/Victorious_Rengar.png?enhanced",
                         "/src/lib/assets/images/projects/LOL/magma_chamber_veigar.jpg?enhanced",
-                        "/src/lib/assets/images/projects/LOL/magma_chamber_jax.jpg?enhanced"
+                        "/src/lib/assets/images/projects/LOL/magma_chamber_jax.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/HS2_aphe.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/HS2_ezreal.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/HS2_kayn.jpg?enhanced",
+                        "/src/lib/assets/images/projects/LOL/TD2_qiyana.jpg?enhanced"
                     ],
                     "imageTitles": {
                         "0": {
@@ -367,6 +371,22 @@
                         "12": {
                             "title": "Prestige Magma Chamber Jax",
                             "link": "https://www.youtube.com/watch?v=XVtZz5h-eLw"
+                        },
+                        "13": {
+                            "title": "HEARTSTEEL Live My Life Aphelios",
+                            "link": "https://www.youtube.com/watch?v=z5DqLe73ETw"
+                        },
+                        "14": {
+                            "title": "HEARTSTEEL Live My Life Ezreal",
+                            "link": "https://www.youtube.com/watch?v=XsshMpqhn6s"
+                        },
+                        "15": {
+                            "title": "HEARTSTEEL Live My Life Kayn",
+                            "link": "https://www.youtube.com/watch?v=QIKSzNjUdO0"
+                        },
+                        "16": {
+                            "title": "True Damage Know My Name Qiyana",
+                            "link": "https://www.youtube.com/watch?v=JvbfLWpIKQE"
                         }
                     },
                     "externalUrl": {
